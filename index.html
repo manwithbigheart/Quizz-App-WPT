@@ -277,11 +277,6 @@
             placeholder="Enter your 10-digit mobile number"
           />
         </div>
-        <p
-          id="visitor-count"
-          style="color: var(--text-dark); margin-bottom: 20px"
-        ></p>
-
         <button id="start-btn" class="btn">Start Exam</button>
         <p id="start-error" style="display: none"></p>
       </div>
@@ -325,31 +320,6 @@
     </div>
 
     <script>
-      // NEW --> Function to handle and display visitor count
-      function handleVisitorCount() {
-        const countElement = document.getElementById("visitor-count");
-        // Use a unique key for this specific app's visitor count
-        let visitorCount = localStorage.getItem("wptExamVisitorCount");
-
-        if (visitorCount) {
-          // If the user has visited before, increment the count
-          visitorCount = parseInt(visitorCount) + 1;
-        } else {
-          // First time visitor
-          visitorCount = 1;
-        }
-
-        // Save the new count back to localStorage
-        localStorage.setItem("wptExamVisitorCount", visitorCount);
-
-        // Display the message
-        countElement.textContent = `You have visited this page ${visitorCount} time(s).`;
-      }
-
-      // Call the function when the script loads
-      handleVisitorCount();
-      // <-- END OF NEW CODE
-
       // DOM Elements
       const allViews = {
         details: document.getElementById("user-details-container"),
@@ -373,565 +343,353 @@
         // Part 1: Web Architecture, HTML, CSS, Responsive Design, Bootstrap
         {
           part: 1,
-          question:
-            "Q1. Which HTTP method is considered idempotent but not safe?",
+          question: "Q1. Which HTTP method is considered idempotent but not safe?",
           options: ["a) GET", "b) POST", "c) PUT", "d) DELETE"],
           correct: "c",
-          explanation:
-            "Idempotent means the same request can be made multiple times with the same outcome. `PUT` is idempotent because updating a resource with the same data multiple times results in the same final state. It's not safe because it modifies data on the server.",
+          explanation: "Idempotent means the same request can be made multiple times with the same outcome. `PUT` is idempotent because updating a resource with the same data multiple times results in the same final state. It's not safe because it modifies data on the server."
         },
         {
           part: 1,
-          question:
-            "Q2. Which HTTP/2 feature improves performance compared to HTTP/1.1?",
-          options: [
-            "a) Statelessness",
-            "b) Header compression",
-            "c) Persistent cookies",
-            "d) MIME types",
-          ],
+          question: "Q2. Which HTTP/2 feature improves performance compared to HTTP/1.1?",
+          options: ["a) Statelessness", "b) Header compression", "c) Persistent cookies", "d) MIME types"],
           correct: "b",
-          explanation:
-            "HTTP/2 uses HPACK header compression to reduce overhead and improve performance. Features like multiplexing and server push also contribute to its speed over HTTP/1.1.",
+          explanation: "HTTP/2 uses HPACK header compression to reduce overhead and improve performance. Features like multiplexing and server push also contribute to its speed over HTTP/1.1."
         },
         {
           part: 1,
           question: "Q3. What does DNS primarily resolve?",
-          options: [
-            "a) IP to MAC address",
-            "b) Domain name to IP address",
-            "c) Hostname to port number",
-            "d) Pathname to resource",
-          ],
+          options: ["a) IP to MAC address", "b) Domain name to IP address", "c) Hostname to port number", "d) Pathname to resource"],
           correct: "b",
-          explanation:
-            "The Domain Name System (DNS) is the phonebook of the internet, translating human-readable domain names (like www.google.com) into machine-readable IP addresses (like 172.217.168.68).",
+          explanation: "The Domain Name System (DNS) is the phonebook of the internet, translating human-readable domain names (like www.google.com) into machine-readable IP addresses (like 172.217.168.68)."
         },
         {
           part: 1,
-          question:
-            "Q4. Which status code means “Request has been accepted but not completed”?",
+          question: "Q4. Which status code means “Request has been accepted but not completed”?",
           options: ["a) 200", "b) 201", "c) 202", "d) 204"],
           correct: "c",
-          explanation:
-            "The `202 Accepted` status code indicates that the request has been accepted for processing, but the processing has not been completed. This is useful for asynchronous tasks.",
+          explanation: "The `202 Accepted` status code indicates that the request has been accepted for processing, but the processing has not been completed. This is useful for asynchronous tasks."
         },
         {
           part: 1,
           question: "Q5. HTTPS uses which layer for encryption?",
-          options: [
-            "a) Transport Layer",
-            "b) Application Layer",
-            "c) Session Layer",
-            "d) Presentation Layer",
-          ],
+          options: ["a) Transport Layer", "b) Application Layer", "c) Session Layer", "d) Presentation Layer"],
           correct: "a",
-          explanation:
-            "HTTPS uses TLS/SSL for encryption, which operates at the Transport Layer, creating a secure connection before any application data (like HTTP) is exchanged.",
+          explanation: "HTTPS uses TLS/SSL for encryption, which operates at the Transport Layer, creating a secure connection before any application data (like HTTP) is exchanged."
         },
         {
           part: 1,
           question: "Q6. Identify the invalid HTML5 tag:",
-          options: [
-            "a) <section>",
-            "b) <article>",
-            "c) <center>",
-            "d) <aside>",
-          ],
+          options: ["a) <section>", "b) <article>", "c) <center>", "d) <aside>"],
           correct: "c",
-          explanation:
-            "The `<center>` tag is deprecated in HTML5. While it may still work in some browsers for backward compatibility, styling should be done with CSS (e.g., `text-align: center;`).",
+          explanation: "The `<center>` tag is deprecated in HTML5. While it may still work in some browsers for backward compatibility, styling should be done with CSS (e.g., `text-align: center;`)."
         },
         {
           part: 1,
-          question:
-            "Q7. Which attribute in HTML5 supports accessibility for screen readers?",
+          question: "Q7. Which attribute in HTML5 supports accessibility for screen readers?",
           options: ["a) aria-*", "b) srcset", "c) tabindex", "d) hidden"],
           correct: "a",
-          explanation:
-            "The `aria-*` (Accessible Rich Internet Applications) attributes help make web content more accessible to people with disabilities by providing extra information to screen readers.",
+          explanation: "The `aria-*` (Accessible Rich Internet Applications) attributes help make web content more accessible to people with disabilities by providing extra information to screen readers."
         },
         {
           part: 1,
           question: "Q8. <canvas> tag in HTML5 is used for:",
-          options: [
-            "a) 3D rendering only",
-            "b) Drawing graphics via JavaScript",
-            "c) Playing media files",
-            "d) Accessibility",
-          ],
+          options: ["a) 3D rendering only", "b) Drawing graphics via JavaScript", "c) Playing media files", "d) Accessibility"],
           correct: "b",
-          explanation:
-            "The `<canvas>` element provides a container for drawing graphics, charts, and animations on the fly using JavaScript.",
+          explanation: "The `<canvas>` element provides a container for drawing graphics, charts, and animations on the fly using JavaScript."
         },
         {
           part: 1,
           question: "Q9. Which CSS selector has the highest specificity?",
           options: ["a) div p", "b) .class", "c) #id", "d) *"],
           correct: "c",
-          explanation:
-            "Specificity determines which CSS rule is applied. An ID selector (`#id`) is more specific than a class selector (`.class`), which is more specific than a type selector (`div`). Inline styles have the highest specificity.",
+          explanation: "Specificity determines which CSS rule is applied. An ID selector (`#id`) is more specific than a class selector (`.class`), which is more specific than a type selector (`div`). Inline styles have the highest specificity."
         },
         {
           part: 1,
           question: "Q10. Which CSS property is NOT inherited by default?",
-          options: [
-            "a) font-family",
-            "b) color",
-            "c) border",
-            "d) line-height",
-          ],
+          options: ["a) font-family", "b) color", "c) border", "d) line-height"],
           correct: "c",
-          explanation:
-            "Box model properties like `border`, `margin`, `padding`, and `width` are not inherited by child elements. Typographic properties like `font-family` and `color` are inherited.",
+          explanation: "Box model properties like `border`, `margin`, `padding`, and `width` are not inherited by child elements. Typographic properties like `font-family` and `color` are inherited."
         },
         {
           part: 1,
-          question:
-            "Q11. Which CSS unit is relative to the parent element’s font size?",
+          question: "Q11. Which CSS unit is relative to the parent element’s font size?",
           options: ["a) em", "b) rem", "c) px", "d) %"],
           correct: "a",
-          explanation:
-            "The `em` unit is relative to the font-size of the direct parent. `rem` (root em) is relative to the font-size of the root element (<html>).",
+          explanation: "The `em` unit is relative to the font-size of the direct parent. `rem` (root em) is relative to the font-size of the root element (<html>)."
         },
         {
           part: 1,
           question: "Q12. What is the correct order of the CSS box model?",
-          options: [
-            "a) margin → padding → border → content",
-            "b) margin → border → padding → content",
-            "c) content → padding → border → margin",
-            "d) border → padding → margin → content",
-          ],
+          options: ["a) margin → padding → border → content", "b) margin → border → padding → content", "c) content → padding → border → margin", "d) border → padding → margin → content"],
           correct: "c",
-          explanation:
-            "The CSS box model works from the inside out: first the content, then its padding, then the border around the padding, and finally the margin outside the border.",
+          explanation: "The CSS box model works from the inside out: first the content, then its padding, then the border around the padding, and finally the margin outside the border."
         },
         {
           part: 1,
-          question:
-            "Q13. In Responsive Web Design, @media (max-width: 768px) means:",
-          options: [
-            "a) Apply styles only above 768px",
-            "b) Apply styles when width ≤ 768px",
-            "c) Apply styles only at 768px",
-            "d) Apply styles when width ≥ 768px",
-          ],
+          question: "Q13. In Responsive Web Design, @media (max-width: 768px) means:",
+          options: ["a) Apply styles only above 768px", "b) Apply styles when width ≤ 768px", "c) Apply styles only at 768px", "d) Apply styles when width ≥ 768px"],
           correct: "b",
-          explanation:
-            "The `max-width` media feature targets viewports up to a certain width. So, these styles will apply when the screen width is 768 pixels or less.",
+          explanation: "The `max-width` media feature targets viewports up to a certain width. So, these styles will apply when the screen width is 768 pixels or less."
         },
         {
           part: 1,
-          question:
-            "Q14. Which Bootstrap class creates a responsive grid with 12 columns?",
+          question: "Q14. Which Bootstrap class creates a responsive grid with 12 columns?",
           options: ["a) .grid-12", "b) .col", "c) .container", "d) .row"],
           correct: "b",
-          explanation:
-            "In Bootstrap, you place columns (`.col`, `.col-md-6`, etc.) inside a `.row`, which in turn is placed inside a `.container`. The `.col` classes define the column structure.",
+          explanation: "In Bootstrap, you place columns (`.col`, `.col-md-6`, etc.) inside a `.row`, which in turn is placed inside a `.container`. The `.col` classes define the column structure."
         },
         {
           part: 1,
-          question:
-            "Q15. Which Bootstrap component is used for creating collapsible content?",
+          question: "Q15. Which Bootstrap component is used for creating collapsible content?",
           options: ["a) Modal", "b) Navbar", "c) Collapse", "d) Jumbotron"],
           correct: "c",
-          explanation:
-            "Bootstrap's `Collapse` component is used to toggle the visibility of content, creating accordions or expandable sections.",
+          explanation: "Bootstrap's `Collapse` component is used to toggle the visibility of content, creating accordions or expandable sections."
         },
         {
           part: 1,
-          question:
-            "Q16. Which Bootstrap utility class hides an element on small devices but shows on larger ones?",
-          options: [
-            "a) .d-none .d-md-block",
-            "b) .d-block .d-sm-none",
-            "c) .invisible-md",
-            "d) .hide-lg",
-          ],
+          question: "Q16. Which Bootstrap utility class hides an element on small devices but shows on larger ones?",
+          options: ["a) .d-none .d-md-block", "b) .d-block .d-sm-none", "c) .invisible-md", "d) .hide-lg"],
           correct: "a",
-          explanation:
-            "`.d-none` hides the element by default (on extra small screens), and `.d-md-block` makes it display as a block element on medium screens (≥768px) and up.",
+          explanation: "`.d-none` hides the element by default (on extra small screens), and `.d-md-block` makes it display as a block element on medium screens (≥768px) and up."
         },
         {
           part: 1,
-          question:
-            "Q17. Which HTML5 API allows detecting user’s geographic position?",
-          options: [
-            "a) Geolocation API",
-            "b) Navigator API",
-            "c) Location API",
-            "d) Map API",
-          ],
+          question: "Q17. Which HTML5 API allows detecting user’s geographic position?",
+          options: ["a) Geolocation API", "b) Navigator API", "c) Location API", "d) Map API"],
           correct: "a",
-          explanation:
-            "The Geolocation API, accessed via `navigator.geolocation`, allows the user to share their location with web applications.",
+          explanation: "The Geolocation API, accessed via `navigator.geolocation`, allows the user to share their location with web applications."
         },
         {
           part: 1,
-          question:
-            "Q18. Which of the following is not true for HTML5 <video> element?",
-          options: [
-            "a) Supports multiple sources",
-            "b) Requires Flash to run",
-            "c) Can have controls attribute",
-            "d) Can autoplay",
-          ],
+          question: "Q18. Which of the following is not true for HTML5 <video> element?",
+          options: ["a) Supports multiple sources", "b) Requires Flash to run", "c) Can have controls attribute", "d) Can autoplay"],
           correct: "b",
-          explanation:
-            "The HTML5 `<video>` element was created specifically to play video natively in the browser without needing third-party plugins like Flash.",
+          explanation: "The HTML5 `<video>` element was created specifically to play video natively in the browser without needing third-party plugins like Flash."
         },
         {
           part: 1,
-          question:
-            "Q19. Which CSS pseudo-class selects the first element of its parent?",
-          options: [
-            "a) :first-child",
-            "b) :first-of-type",
-            "c) :nth-child(1)",
-            "d) :only-child",
-          ],
+          question: "Q19. Which CSS pseudo-class selects the first element of its parent?",
+          options: ["a) :first-child", "b) :first-of-type", "c) :nth-child(1)", "d) :only-child"],
           correct: "a",
-          explanation:
-            "`:first-child` selects any element that is the first child of its parent. `:nth-child(1)` does the same thing. `:first-of-type` selects the first element of its specific type within a parent.",
+          explanation: "`:first-child` selects any element that is the first child of its parent. `:nth-child(1)` does the same thing. `:first-of-type` selects the first element of its specific type within a parent."
         },
         {
           part: 1,
           question: "Q20. Which property enables flexible layouts in CSS?",
-          options: [
-            "a) display: block",
-            "b) display: grid",
-            "c) display: flex",
-            "d) display: inline",
-          ],
+          options: ["a) display: block", "b) display: grid", "c) display: flex", "d) display: inline"],
           correct: "c",
-          explanation:
-            "CSS Flexbox (`display: flex`) is a layout model designed for creating flexible and efficient one-dimensional layouts. `display: grid` is for two-dimensional layouts.",
+          explanation: "CSS Flexbox (`display: flex`) is a layout model designed for creating flexible and efficient one-dimensional layouts. `display: grid` is for two-dimensional layouts."
         },
         {
           part: 1,
           question: "Q21. Bootstrap Grid System is based on:",
-          options: [
-            "a) Flexbox",
-            "b) CSS Floats",
-            "c) Tables",
-            "d) Inline-block",
-          ],
+          options: ["a) Flexbox", "b) CSS Floats", "c) Tables", "d) Inline-block"],
           correct: "a",
-          explanation:
-            "Modern versions of Bootstrap (4 and later) have a powerful, mobile-first grid system built with Flexbox.",
+          explanation: "Modern versions of Bootstrap (4 and later) have a powerful, mobile-first grid system built with Flexbox."
         },
         {
           part: 1,
           question: "Q22. Which HTTP method is safe?",
           options: ["a) POST", "b) GET", "c) PUT", "d) DELETE"],
           correct: "b",
-          explanation:
-            "A method is 'safe' if it does not alter the state of the server. `GET` is safe because it's used only for retrieving data. `POST`, `PUT`, and `DELETE` all modify data.",
+          explanation: "A method is 'safe' if it does not alter the state of the server. `GET` is safe because it's used only for retrieving data. `POST`, `PUT`, and `DELETE` all modify data."
         },
         {
           part: 1,
           question: "Q23. Which HTTP header is used for caching control?",
-          options: [
-            "a) Cache-Control",
-            "b) Set-Cookie",
-            "c) Content-Type",
-            "d) Host",
-          ],
+          options: ["a) Cache-Control", "b) Set-Cookie", "c) Content-Type", "d) Host"],
           correct: "a",
-          explanation:
-            "The `Cache-Control` header provides directives for caching in both requests and responses, controlling how a resource is cached by browsers and proxies.",
+          explanation: "The `Cache-Control` header provides directives for caching in both requests and responses, controlling how a resource is cached by browsers and proxies."
         },
         {
           part: 1,
-          question:
-            "Q24. Which tag is used for embedding an external web page in HTML?",
+          question: "Q24. Which tag is used for embedding an external web page in HTML?",
           options: ["a) <iframe>", "b) <frame>", "c) <embed>", "d) <object>"],
           correct: "a",
-          explanation:
-            "The `<iframe>` (Inline Frame) element is used to embed another HTML document within the current one. `<frame>` is deprecated.",
+          explanation: "The `<iframe>` (Inline Frame) element is used to embed another HTML document within the current one. `<frame>` is deprecated."
         },
         {
           part: 1,
-          question:
-            "Q25. Which HTML attribute specifies multiple input values separated by commas?",
+          question: "Q25. Which HTML attribute specifies multiple input values separated by commas?",
           options: ["a) multiple", "b) list", "c) pattern", "d) type"],
           correct: "a",
-          explanation:
-            "The `multiple` attribute, when used with `<input type='email'>` or `<input type='file'>`, allows the user to select or enter multiple values.",
+          explanation: "The `multiple` attribute, when used with `<input type='email'>` or `<input type='file'>`, allows the user to select or enter multiple values."
         },
         {
           part: 1,
-          question:
-            "Q26. Difference between == and === in JavaScript applies because:",
-          options: [
-            "a) == compares only references",
-            "b) === checks value & type",
-            "c) === ignores types",
-            "d) No difference",
-          ],
+          question: "Q26. Difference between == and === in JavaScript applies because:",
+          options: ["a) == compares only references", "b) === checks value & type", "c) === ignores types", "d) No difference"],
           correct: "b",
-          explanation:
-            "The strict equality operator (`===`) checks for both value and type equality without performing type coercion. The loose equality operator (`==`) performs type coercion if the types are different.",
+          explanation: "The strict equality operator (`===`) checks for both value and type equality without performing type coercion. The loose equality operator (`==`) performs type coercion if the types are different."
         },
         {
           part: 1,
           question: "Q27. Which CSS rule gives priority when all exist?",
-          options: [
-            "a) External stylesheet",
-            "b) Inline style",
-            "c) Internal style",
-            "d) Browser default",
-          ],
+          options: ["a) External stylesheet", "b) Inline style", "c) Internal style", "d) Browser default"],
           correct: "b",
-          explanation:
-            "Inline styles (e.g., `<div style='color: red;'>`) have the highest specificity and will override styles from internal (`<style>`) or external stylesheets.",
+          explanation: "Inline styles (e.g., `<div style='color: red;'>`) have the highest specificity and will override styles from internal (`<style>`) or external stylesheets."
         },
         {
           part: 1,
-          question:
-            "Q28. Which HTTP response indicates resource permanently moved?",
+          question: "Q28. Which HTTP response indicates resource permanently moved?",
           options: ["a) 301", "b) 302", "c) 404", "d) 410"],
           correct: "a",
-          explanation:
-            "`301 Moved Permanently` tells the client and search engines that a resource has permanently moved to a new URL, and they should use the new one for future requests.",
+          explanation: "`301 Moved Permanently` tells the client and search engines that a resource has permanently moved to a new URL, and they should use the new one for future requests."
         },
         {
           part: 1,
           question: "Q29. Which HTML5 element is semantic?",
           options: ["a) <div>", "b) <span>", "c) <section>", "d) <b>"],
           correct: "c",
-          explanation:
-            "Semantic elements like `<section>`, `<article>`, `<header>`, and `<footer>` describe their meaning to both the browser and developer, unlike non-semantic elements like `<div>` and `<span>`.",
+          explanation: "Semantic elements like `<section>`, `<article>`, `<header>`, and `<footer>` describe their meaning to both the browser and developer, unlike non-semantic elements like `<div>` and `<span>`."
         },
         {
           part: 1,
           question: "Q30. Bootstrap .btn-group is used for:",
-          options: [
-            "a) Aligning multiple buttons together",
-            "b) Creating dropdown buttons",
-            "c) Creating form inputs",
-            "d) Making buttons responsive",
-          ],
+          options: ["a) Aligning multiple buttons together", "b) Creating dropdown buttons", "c) Creating form inputs", "d) Making buttons responsive"],
           correct: "a",
-          explanation:
-            "The `.btn-group` class is used to group a series of buttons together on a single line, appearing as a cohesive component.",
+          explanation: "The `.btn-group` class is used to group a series of buttons together on a single line, appearing as a cohesive component."
         },
         {
           part: 1,
-          question:
-            "Q31. Which CSS method is used to ensure website is mobile-friendly?",
-          options: [
-            "a) Responsive Design",
-            "b) CSS Variables",
-            "c) CSS Animations",
-            "d) CSS Grid",
-          ],
+          question: "Q31. Which CSS method is used to ensure website is mobile-friendly?",
+          options: ["a) Responsive Design", "b) CSS Variables", "c) CSS Animations", "d) CSS Grid"],
           correct: "a",
-          explanation:
-            "Responsive Web Design, primarily using media queries, ensures that a website's layout adapts to different screen sizes and devices, making it mobile-friendly.",
+          explanation: "Responsive Web Design, primarily using media queries, ensures that a website's layout adapts to different screen sizes and devices, making it mobile-friendly."
         },
         {
           part: 1,
           question: "Q32. Which HTTP status indicates partial content?",
           options: ["a) 200", "b) 206", "c) 302", "d) 403"],
           correct: "b",
-          explanation:
-            "`206 Partial Content` is used when the server is sending back only a part of the requested resource, which is common in video streaming or resumable downloads.",
+          explanation: "`206 Partial Content` is used when the server is sending back only a part of the requested resource, which is common in video streaming or resumable downloads."
         },
         {
           part: 1,
-          question:
-            "Q33. Which CSS feature allows reusing a common style property set?",
-          options: [
-            "a) CSS Variables",
-            "b) @mixin",
-            "c) Classes",
-            "d) Inline styles",
-          ],
+          question: "Q33. Which CSS feature allows reusing a common style property set?",
+          options: ["a) CSS Variables", "b) @mixin", "c) Classes", "d) Inline styles"],
           correct: "a",
-          explanation:
-            "CSS Variables (Custom Properties) allow you to define a value once (e.g., `--main-color: blue;`) and reuse it throughout your CSS, making it easy to manage themes and common styles.",
+          explanation: "CSS Variables (Custom Properties) allow you to define a value once (e.g., `--main-color: blue;`) and reuse it throughout your CSS, making it easy to manage themes and common styles."
         },
         {
           part: 1,
           question: "Q34. Which is not true for HTTP/2?",
-          options: [
-            "a) Multiplexing",
-            "b) Server push",
-            "c) Stateless",
-            "d) Requires XML",
-          ],
+          options: ["a) Multiplexing", "b) Server push", "c) Stateless", "d) Requires XML"],
           correct: "d",
-          explanation:
-            "HTTP/2 is a binary protocol, not based on XML. It retains the stateless nature of HTTP/1.1 and adds performance features like multiplexing and server push.",
+          explanation: "HTTP/2 is a binary protocol, not based on XML. It retains the stateless nature of HTTP/1.1 and adds performance features like multiplexing and server push."
         },
         {
           part: 1,
           question: "Q35. Which HTML5 input type is used for selecting color?",
           options: ["a) text", "b) color", "c) range", "d) hex"],
           correct: "b",
-          explanation:
-            "`<input type='color'>` provides a user interface element that lets a user specify a color, either by using a visual color picker or by entering the color into a text field.",
+          explanation: "`<input type='color'>` provides a user interface element that lets a user specify a color, either by using a visual color picker or by entering the color into a text field."
         },
         {
           part: 1,
           question: "Q36. Which meta tag sets responsive viewport?",
-          options: [
-            "a) <meta name='viewport' content='width=device-width, initial-scale=1.0'>",
-            "b) <meta charset='utf-8'>",
-            "c) <meta name='mobile'>",
-            "d) <meta content='scale'>",
-          ],
+          options: ["a) <meta name='viewport' content='width=device-width, initial-scale=1.0'>", "b) <meta charset='utf-8'>", "c) <meta name='mobile'>", "d) <meta content='scale'>"],
           correct: "a",
-          explanation:
-            "The viewport meta tag is essential for responsive design. It tells the browser to set the width of the page to the device's screen width and set the initial zoom level to 1.",
+          explanation: "The viewport meta tag is essential for responsive design. It tells the browser to set the width of the page to the device's screen width and set the initial zoom level to 1."
         },
         {
           part: 1,
           question: "Q37. Which Bootstrap class makes text uppercase?",
-          options: [
-            "a) .text-uppercase",
-            "b) .text-capitalize",
-            "c) .text-upper",
-            "d) .text-bold",
-          ],
+          options: ["a) .text-uppercase", "b) .text-capitalize", "c) .text-upper", "d) .text-bold"],
           correct: "a",
-          explanation:
-            "Bootstrap provides text utility classes. `.text-uppercase` transforms text to uppercase, `.text-lowercase` to lowercase, and `.text-capitalize` capitalizes the first letter of each word.",
+          explanation: "Bootstrap provides text utility classes. `.text-uppercase` transforms text to uppercase, `.text-lowercase` to lowercase, and `.text-capitalize` capitalizes the first letter of each word."
         },
         {
           part: 1,
           question: "Q38. Which of these is NOT a CSS position property?",
           options: ["a) fixed", "b) absolute", "c) float", "d) sticky"],
           correct: "c",
-          explanation:
-            "`float` is a layout property used to push elements to the side of a container, not a value for the `position` property. Valid `position` values include `static`, `relative`, `absolute`, `fixed`, and `sticky`.",
+          explanation: "`float` is a layout property used to push elements to the side of a container, not a value for the `position` property. Valid `position` values include `static`, `relative`, `absolute`, `fixed`, and `sticky`."
         },
         {
           part: 1,
-          question:
-            "Q39. Which HTML5 attribute specifies input validation using regex?",
+          question: "Q39. Which HTML5 attribute specifies input validation using regex?",
           options: ["a) validate", "b) required", "c) pattern", "d) match"],
           correct: "c",
-          explanation:
-            "The `pattern` attribute allows you to specify a regular expression that the input's value must match for the form to be submittable.",
+          explanation: "The `pattern` attribute allows you to specify a regular expression that the input's value must match for the form to be submittable."
         },
         {
           part: 1,
-          question:
-            "Q40. Which CSS pseudo-class applies to links that are visited?",
+          question: "Q40. Which CSS pseudo-class applies to links that are visited?",
           options: ["a) :hover", "b) :visited", "c) :active", "d) :focus"],
           correct: "b",
-          explanation:
-            "The `:visited` pseudo-class is used to style links (`<a>`) that the user has already visited.",
+          explanation: "The `:visited` pseudo-class is used to style links (`<a>`) that the user has already visited."
         },
         {
           part: 1,
           question: "Q41. Which Bootstrap component is best for navigation?",
           options: ["a) Navbar", "b) Jumbotron", "c) Card", "d) Alert"],
           correct: "a",
-          explanation:
-            "The `Navbar` component is a powerful, responsive navigation header that can include branding, links, forms, and more.",
+          explanation: "The `Navbar` component is a powerful, responsive navigation header that can include branding, links, forms, and more."
         },
         {
           part: 1,
-          question:
-            "Q42. Which HTTP method is often used for API creation with JSON payload?",
+          question: "Q42. Which HTTP method is often used for API creation with JSON payload?",
           options: ["a) GET", "b) POST", "c) OPTIONS", "d) HEAD"],
           correct: "b",
-          explanation:
-            "The `POST` method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server. It's commonly used to create new resources by sending a JSON payload in the request body.",
+          explanation: "The `POST` method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server. It's commonly used to create new resources by sending a JSON payload in the request body."
         },
         {
           part: 1,
           question: "Q43. In HTML5, <mark> tag is used for:",
-          options: [
-            "a) Highlighting text",
-            "b) Emphasizing text",
-            "c) Citation",
-            "d) Metadata",
-          ],
+          options: ["a) Highlighting text", "b) Emphasizing text", "c) Citation", "d) Metadata"],
           correct: "a",
-          explanation:
-            "The `<mark>` tag represents text which is marked or highlighted for reference or notation purposes, due to its relevance in another context (like search results).",
+          explanation: "The `<mark>` tag represents text which is marked or highlighted for reference or notation purposes, due to its relevance in another context (like search results)."
         },
         {
           part: 1,
           question: "Q44. Which Bootstrap class adds padding?",
           options: ["a) .p-3", "b) .m-3", "c) .pb", "d) .pt"],
           correct: "a",
-          explanation:
-            "Bootstrap's spacing utilities use `p` for padding and `m` for margin. `.p-3` applies padding on all sides. `.m-3` applies margin on all sides.",
+          explanation: "Bootstrap's spacing utilities use `p` for padding and `m` for margin. `.p-3` applies padding on all sides. `.m-3` applies margin on all sides."
         },
         {
           part: 1,
           question: "Q45. Which CSS property sets element stacking order?",
           options: ["a) order", "b) z-index", "c) stack", "d) display"],
           correct: "b",
-          explanation:
-            "The `z-index` property specifies the stack order of a positioned element. An element with a greater `z-index` will always be in front of an element with a lower one.",
+          explanation: "The `z-index` property specifies the stack order of a positioned element. An element with a greater `z-index` will always be in front of an element with a lower one."
         },
         {
           part: 1,
           question: "Q46. Which of the following is true about HTTP?",
-          options: [
-            "a) Maintains session state by default",
-            "b) Connectionless & stateless",
-            "c) Secure by default",
-            "d) Only supports GET/POST",
-          ],
+          options: ["a) Maintains session state by default", "b) Connectionless & stateless", "c) Secure by default", "d) Only supports GET/POST"],
           correct: "b",
-          explanation:
-            "HTTP is a stateless protocol, meaning each request is independent and the server doesn't retain information about past requests. It's also connectionless, as the connection is typically closed after a single request-response cycle (though this changes with features like keep-alive).",
+          explanation: "HTTP is a stateless protocol, meaning each request is independent and the server doesn't retain information about past requests. It's also connectionless, as the connection is typically closed after a single request-response cycle (though this changes with features like keep-alive)."
         },
         {
           part: 1,
           question: "Q47. Which HTML5 attribute makes input mandatory?",
           options: ["a) required", "b) validate", "c) must", "d) pattern"],
           correct: "a",
-          explanation:
-            "The `required` boolean attribute specifies that an input field must be filled out before submitting the form.",
+          explanation: "The `required` boolean attribute specifies that an input field must be filled out before submitting the form."
         },
         {
           part: 1,
           question: "Q48. Which Bootstrap class creates responsive tables?",
-          options: [
-            "a) .table-responsive",
-            "b) .table-mobile",
-            "c) .table-grid",
-            "d) .table-fixed",
-          ],
+          options: ["a) .table-responsive", "b) .table-mobile", "c) .table-grid", "d) .table-fixed"],
           correct: "a",
-          explanation:
-            "Wrapping a `.table` with `.table-responsive` creates a horizontally scrollable table on small devices, preventing it from breaking the page layout.",
+          explanation: "Wrapping a `.table` with `.table-responsive` creates a horizontally scrollable table on small devices, preventing it from breaking the page layout."
         },
         {
           part: 1,
           question: "Q49. Which CSS property is used for animations?",
-          options: [
-            "a) transition",
-            "b) animation",
-            "c) keyframes",
-            "d) all of the above",
-          ],
+          options: ["a) transition", "b) animation", "c) keyframes", "d) all of the above"],
           correct: "d",
-          explanation:
-            "`transition` is for simple state changes. For more complex, multi-step animations, you define `@keyframes` and apply them with the `animation` property.",
+          explanation: "`transition` is for simple state changes. For more complex, multi-step animations, you define `@keyframes` and apply them with the `animation` property."
         },
         {
           part: 1,
-          question:
-            "Q50. Which Bootstrap class is used for grid column offset?",
-          options: [
-            "a) .offset-*",
-            "b) .col-offset-*",
-            "c) .col-shift-*",
-            "d) .shift-*",
-          ],
+          question: "Q50. Which Bootstrap class is used for grid column offset?",
+          options: ["a) .offset-*", "b) .col-offset-*", "c) .col-shift-*", "d) .shift-*"],
           correct: "a",
-          explanation:
-            "The `.offset-*` classes (e.g., `.offset-md-2`) push a column to the right by a specified number of column widths, creating empty space in the grid.",
+          explanation: "The `.offset-*` classes (e.g., `.offset-md-2`) push a column to the right by a specified number of column widths, creating empty space in the grid."
         },
 
         // Part 2: JavaScript, DOM, JSON, jQuery
@@ -941,37 +699,28 @@
           code: "console.log(0.1 + 0.2 === 0.3);",
           options: ["a) true", "b) false", "c) NaN", "d) undefined"],
           correct: "b",
-          explanation:
-            "This logs `false` due to floating-point precision errors in JavaScript. The result of 0.1 + 0.2 is actually something like 0.30000000000000004, which is not strictly equal to 0.3.",
+          explanation: "This logs `false` due to floating-point precision errors in JavaScript. The result of 0.1 + 0.2 is actually something like 0.30000000000000004, which is not strictly equal to 0.3."
         },
         {
           part: 2,
           question: "Q52. In JavaScript, typeof null returns:",
           options: ["a) null", "b) object", "c) undefined", "d) string"],
           correct: "b",
-          explanation:
-            "This is a well-known quirk in JavaScript. Due to historical reasons, `typeof null` returns 'object', not 'null'.",
+          explanation: "This is a well-known quirk in JavaScript. Due to historical reasons, `typeof null` returns 'object', not 'null'."
         },
         {
           part: 2,
           question: "Q53. Which scope is created when a function is invoked?",
           options: ["a) Global", "b) Block", "c) Function", "d) Lexical"],
           correct: "c",
-          explanation:
-            "Each time a function is called, a new function scope is created for the variables declared inside it.",
+          explanation: "Each time a function is called, a new function scope is created for the variables declared inside it."
         },
         {
           part: 2,
           question: "Q54. What is the difference between let and var?",
-          options: [
-            "a) No difference",
-            "b) let is block-scoped, var is function-scoped",
-            "c) let is global, var is local",
-            "d) var supports constants",
-          ],
+          options: ["a) No difference", "b) let is block-scoped, var is function-scoped", "c) let is global, var is local", "d) var supports constants"],
           correct: "b",
-          explanation:
-            "`let` and `const` have block scope (they exist only within the nearest curly braces), while `var` has function scope.",
+          explanation: "`let` and `const` have block scope (they exist only within the nearest curly braces), while `var` has function scope."
         },
         {
           part: 2,
@@ -979,98 +728,71 @@
           code: "let a = [1,2,3];\nlet b = a;\nb.push(4);\nconsole.log(a);",
           options: ["a) [1,2,3]", "b) [1,2,3,4]", "c) [4]", "d) Error"],
           correct: "b",
-          explanation:
-            "Objects (including arrays) are assigned by reference. Both `a` and `b` point to the same array in memory. Modifying the array through `b` also affects `a`.",
+          explanation: "Objects (including arrays) are assigned by reference. Both `a` and `b` point to the same array in memory. Modifying the array through `b` also affects `a`."
         },
         {
           part: 2,
           question: "Q56. Which array method modifies the original array?",
           options: ["a) map()", "b) filter()", "c) slice()", "d) splice()"],
           correct: "d",
-          explanation:
-            "`splice()` is a mutable method; it changes the contents of an array by removing or replacing existing elements. `map`, `filter`, and `slice` are immutable and return a new array.",
+          explanation: "`splice()` is a mutable method; it changes the contents of an array by removing or replacing existing elements. `map`, `filter`, and `slice` are immutable and return a new array."
         },
         {
           part: 2,
           question: "Q57. Which operator is used to create object prototypes?",
           options: ["a) new", "b) Object.create()", "c) class", "d) extends"],
           correct: "b",
-          explanation:
-            "`Object.create()` creates a new object, using an existing object as the prototype of the newly created object.",
+          explanation: "`Object.create()` creates a new object, using an existing object as the prototype of the newly created object."
         },
         {
           part: 2,
-          question:
-            "Q58. Which keyword is used for inheritance in ES6 classes?",
+          question: "Q58. Which keyword is used for inheritance in ES6 classes?",
           options: ["a) inherit", "b) extend", "c) extends", "d) super"],
           correct: "c",
-          explanation:
-            "The `extends` keyword is used in class declarations or class expressions to create a class as a child of another class.",
+          explanation: "The `extends` keyword is used in class declarations or class expressions to create a class as a child of another class."
         },
         {
           part: 2,
           question: "Q59. Which keyword calls the parent constructor in ES6?",
           options: ["a) this()", "b) super()", "c) parent()", "d) extends()"],
           correct: "b",
-          explanation:
-            "In a child class constructor, `super()` must be called before using `this`. It calls the parent class's constructor.",
+          explanation: "In a child class constructor, `super()` must be called before using `this`. It calls the parent class's constructor."
         },
         {
           part: 2,
           question: "Q60. What will be logged?",
-          code: "console.log([1,2] + [3,4]);",
-          options: ["a) [1,2,3,4]", "b) 10", 'c) "1,23,4"', 'd) "1,23,4"'],
+          code: 'console.log([1,2] + [3,4]);',
+          options: ["a) [1,2,3,4]", "b) 10", "c) \"1,23,4\"", "d) \"1,23,4\""],
           correct: "d",
-          explanation:
-            "The `+` operator converts arrays to strings before concatenation. `[1,2].toString()` becomes `'1,2'`, and `[3,4].toString()` becomes `'3,4'`. The result is the string `'1,2' + '3,4'`, which is `'1,23,4'`.",
+          explanation: "The `+` operator converts arrays to strings before concatenation. `[1,2].toString()` becomes `'1,2'`, and `[3,4].toString()` becomes `'3,4'`. The result is the string `'1,2' + '3,4'`, which is `'1,23,4'`."
         },
         {
           part: 2,
           question: "Q61. What is closure in JS?",
-          options: [
-            "a) Function returning another function",
-            "b) Function bundled with its lexical scope",
-            "c) Anonymous function only",
-            "d) A callback",
-          ],
+          options: ["a) Function returning another function", "b) Function bundled with its lexical scope", "c) Anonymous function only", "d) A callback"],
           correct: "b",
-          explanation:
-            "A closure is the combination of a function and the lexical environment within which that function was declared. It gives you access to an outer function’s scope from an inner function.",
+          explanation: "A closure is the combination of a function and the lexical environment within which that function was declared. It gives you access to an outer function’s scope from an inner function."
         },
         {
           part: 2,
           question: "Q62. Which method stops event bubbling?",
-          options: [
-            "a) preventDefault()",
-            "b) stopPropagation()",
-            "c) stopEvent()",
-            "d) cancel()",
-          ],
+          options: ["a) preventDefault()", "b) stopPropagation()", "c) stopEvent()", "d) cancel()"],
           correct: "b",
-          explanation:
-            "`event.stopPropagation()` prevents an event from bubbling up the DOM tree to parent elements. `preventDefault()` stops the browser's default action for an event.",
+          explanation: "`event.stopPropagation()` prevents an event from bubbling up the DOM tree to parent elements. `preventDefault()` stops the browser's default action for an event."
         },
         {
           part: 2,
           question: "Q63. Which DOM method selects the first matching element?",
-          options: [
-            "a) getElementById()",
-            "b) querySelector()",
-            "c) querySelectorAll()",
-            "d) getElementsByClassName()",
-          ],
+          options: ["a) getElementById()", "b) querySelector()", "c) querySelectorAll()", "d) getElementsByClassName()"],
           correct: "b",
-          explanation:
-            "`querySelector()` returns the first element that matches a specified CSS selector. `querySelectorAll()` returns a collection of all matching elements.",
+          explanation: "`querySelector()` returns the first element that matches a specified CSS selector. `querySelectorAll()` returns a collection of all matching elements."
         },
         {
           part: 2,
-          question:
-            "Q64. Which event fires when input value changes and loses focus?",
+          question: "Q64. Which event fires when input value changes and loses focus?",
           options: ["a) change", "b) input", "c) blur", "d) keyup"],
           correct: "a",
-          explanation:
-            "The `change` event fires for `<input>`, `<select>`, and `<textarea>` elements when an alteration to the element's value is committed by the user (e.g., after it loses focus).",
+          explanation: "The `change` event fires for `<input>`, `<select>`, and `<textarea>` elements when an alteration to the element's value is committed by the user (e.g., after it loses focus)."
         },
         {
           part: 2,
@@ -1078,76 +800,49 @@
           code: '/^\\d{3}$/.test("1234")',
           options: ["a) true", "b) false", "c) null", "d) Error"],
           correct: "b",
-          explanation:
-            "The regex `/^\\d{3}$/` checks for a string that contains exactly three digits from start (`^`) to end (`$`). Since '1234' has four digits, it returns `false`.",
+          explanation: "The regex `/^\\d{3}$/` checks for a string that contains exactly three digits from start (`^`) to end (`$`). Since '1234' has four digits, it returns `false`."
         },
         {
           part: 2,
           question: "Q66. Which tool checks JS code quality?",
           options: ["a) JSLint", "b) JSDebug", "c) JSCleaner", "d) ESLint"],
           correct: "a",
-          explanation:
-            "JSLint is a static code analysis tool used in software development for checking if JavaScript source code complies with coding rules. ESLint is another popular modern alternative.",
+          explanation: "JSLint is a static code analysis tool used in software development for checking if JavaScript source code complies with coding rules. ESLint is another popular modern alternative."
         },
         {
           part: 2,
           question: "Q67. JSON supports which data types?",
-          options: [
-            "a) string, number, object, array, boolean, null",
-            "b) string, function, number, object",
-            "c) number, regex, object",
-            "d) string, array, undefined",
-          ],
+          options: ["a) string, number, object, array, boolean, null", "b) string, function, number, object", "c) number, regex, object", "d) string, array, undefined"],
           correct: "a",
-          explanation:
-            "JSON's data types are a subset of JavaScript's. It supports strings, numbers, objects (key-value maps), arrays, booleans (`true`/`false`), and `null`. It does not support functions, `undefined`, or regex.",
+          explanation: "JSON's data types are a subset of JavaScript's. It supports strings, numbers, objects (key-value maps), arrays, booleans (`true`/`false`), and `null`. It does not support functions, `undefined`, or regex."
         },
         {
           part: 2,
           question: "Q68. Which method converts JSON string into JS object?",
-          options: [
-            "a) JSON.stringify()",
-            "b) JSON.parse()",
-            "c) JSON.decode()",
-            "d) parseJSON()",
-          ],
+          options: ["a) JSON.stringify()", "b) JSON.parse()", "c) JSON.decode()", "d) parseJSON()"],
           correct: "b",
-          explanation:
-            "`JSON.parse()` is used to parse a JSON string, constructing the JavaScript value or object described by the string. `JSON.stringify()` does the opposite.",
+          explanation: "`JSON.parse()` is used to parse a JSON string, constructing the JavaScript value or object described by the string. `JSON.stringify()` does the opposite."
         },
         {
           part: 2,
           question: "Q69. Which jQuery selector selects all paragraphs?",
-          options: ['a) $("p")', 'b) $("#p")', 'c) $(".p")', "d) $p"],
+          options: ['a) $("p")', 'b) $("#p")', 'c) $(".p")', 'd) $p'],
           correct: "a",
-          explanation:
-            "jQuery uses CSS selectors. `$('p')` selects all `<p>` elements. `$('#p')` selects an element with `id='p'`, and `$('.p')` selects elements with `class='p'`.",
+          explanation: "jQuery uses CSS selectors. `$('p')` selects all `<p>` elements. `$('#p')` selects an element with `id='p'`, and `$('.p')` selects elements with `class='p'`."
         },
         {
           part: 2,
           question: "Q70. Which jQuery method changes content of HTML element?",
-          options: [
-            "a) .text()",
-            "b) .html()",
-            "c) .val()",
-            "d) All of the above",
-          ],
+          options: ["a) .text()", "b) .html()", "c) .val()", "d) All of the above"],
           correct: "d",
-          explanation:
-            "`.html()` sets the inner HTML. `.text()` sets the inner text (stripping HTML tags). `.val()` sets the value of form elements. All can be used to change content.",
+          explanation: "`.html()` sets the inner HTML. `.text()` sets the inner text (stripping HTML tags). `.val()` sets the value of form elements. All can be used to change content."
         },
         {
           part: 2,
           question: "Q71. Which jQuery method is used for animations?",
-          options: [
-            "a) .animate()",
-            "b) .move()",
-            "c) .transition()",
-            "d) .slide()",
-          ],
+          options: ["a) .animate()", "b) .move()", "c) .transition()", "d) .slide()"],
           correct: "a",
-          explanation:
-            "The `.animate()` method allows you to create custom animations on any numeric CSS property.",
+          explanation: "The `.animate()` method allows you to create custom animations on any numeric CSS property."
         },
         {
           part: 2,
@@ -1155,16 +850,14 @@
           code: "console.log(typeof NaN);",
           options: ["a) NaN", "b) number", "c) undefined", "d) object"],
           correct: "b",
-          explanation:
-            "`NaN` stands for 'Not a Number', but its data type is, paradoxically, `number`.",
+          explanation: "`NaN` stands for 'Not a Number', but its data type is, paradoxically, `number`."
         },
         {
           part: 2,
           question: "Q73. Which method removes last element of an array?",
           options: ["a) shift()", "b) pop()", "c) slice()", "d) splice()"],
           correct: "b",
-          explanation:
-            "`pop()` removes the last element from an array and returns that element. `shift()` removes the first element.",
+          explanation: "`pop()` removes the last element from an array and returns that element. `shift()` removes the first element."
         },
         {
           part: 2,
@@ -1172,223 +865,156 @@
           code: "let x = [1,2,3];\nlet y = [...x];\ny.push(4);\nconsole.log(x);",
           options: ["a) [1,2,3]", "b) [1,2,3,4]", "c) [4]", "d) Error"],
           correct: "a",
-          explanation:
-            "The spread syntax (`...x`) creates a shallow copy of the array. `x` and `y` are two different arrays. Modifying `y` does not affect the original array `x`.",
+          explanation: "The spread syntax (`...x`) creates a shallow copy of the array. `x` and `y` are two different arrays. Modifying `y` does not affect the original array `x`."
         },
         {
           part: 2,
-          question:
-            "Q75. Which function is called automatically when an object is converted to string?",
-          options: [
-            "a) valueOf()",
-            "b) toString()",
-            "c) stringify()",
-            "d) toJSON()",
-          ],
+          question: "Q75. Which function is called automatically when an object is converted to string?",
+          options: ["a) valueOf()", "b) toString()", "c) stringify()", "d) toJSON()"],
           correct: "b",
-          explanation:
-            "The `toString()` method is called automatically when an object needs to be represented as a text value, for example, when it's concatenated with a string.",
+          explanation: "The `toString()` method is called automatically when an object needs to be represented as a text value, for example, when it's concatenated with a string."
         },
         {
           part: 2,
           question: "Q76. Which is true about this in JS?",
-          options: [
-            "a) Always refers to window",
-            "b) Refers to current object depending on context",
-            "c) Refers to parent object always",
-            "d) Refers to undefined",
-          ],
+          options: ["a) Always refers to window", "b) Refers to current object depending on context", "c) Refers to parent object always", "d) Refers to undefined"],
           correct: "b",
-          explanation:
-            "The value of `this` is determined by how a function is called (the 'call site'). It can be the global object, the object a method is called on, `undefined` in strict mode, or explicitly set with `call`, `apply`, or `bind`.",
+          explanation: "The value of `this` is determined by how a function is called (the 'call site'). It can be the global object, the object a method is called on, `undefined` in strict mode, or explicitly set with `call`, `apply`, or `bind`."
         },
         {
           part: 2,
           question: "Q77. Which method attaches an event in jQuery?",
-          options: [
-            "a) .bind()",
-            "b) .on()",
-            "c) .click()",
-            "d) All of the above",
-          ],
+          options: ["a) .bind()", "b) .on()", "c) .click()", "d) All of the above"],
           correct: "d",
-          explanation:
-            "`.on()` is the modern, recommended way to attach events. `.click()` is a shortcut for `.on('click', ...)`. `.bind()` is an older method that has been superseded by `.on()`.",
+          explanation: "`.on()` is the modern, recommended way to attach events. `.click()` is a shortcut for `.on('click', ...)`. `.bind()` is an older method that has been superseded by `.on()`."
         },
         {
           part: 2,
           question: "Q78. Which JSON notation is invalid?",
-          options: [
-            'a) {"a":1,"b":2}',
-            'b) {"a":true,"b":null}',
-            'c) {"a":undefined}',
-            'd) {"a":"str"}',
-          ],
+          options: ['a) {"a":1,"b":2}', 'b) {"a":true,"b":null}', 'c) {"a":undefined}', 'd) {"a":"str"}'],
           correct: "c",
-          explanation:
-            "The JSON format does not support the `undefined` data type. When stringifying a JavaScript object, properties with `undefined` values are omitted.",
+          explanation: "The JSON format does not support the `undefined` data type. When stringifying a JavaScript object, properties with `undefined` values are omitted."
         },
         {
           part: 2,
           question: "Q79. Which will output 5?",
           code: 'console.log(parseInt("5px"));',
-          options: ["a) 5", "b) NaN", 'c) "5px"', "d) Error"],
+          options: ["a) 5", "b) NaN", "c) \"5px\"", "d) Error"],
           correct: "a",
-          explanation:
-            "`parseInt()` parses a string argument and returns an integer. It parses from the beginning of the string and stops when it encounters a character that is not a number. It correctly extracts `5`.",
+          explanation: "`parseInt()` parses a string argument and returns an integer. It parses from the beginning of the string and stops when it encounters a character that is not a number. It correctly extracts `5`."
         },
         {
           part: 2,
-          question:
-            "Q80. Which operator copies all properties from one object to another?",
-          options: [
-            "a) spread (...)",
-            "b) assign()",
-            "c) merge()",
-            "d) clone()",
-          ],
+          question: "Q80. Which operator copies all properties from one object to another?",
+          options: ["a) spread (...)", "b) assign()", "c) merge()", "d) clone()"],
           correct: "a",
-          explanation:
-            "The spread syntax (`...`) can be used to create a shallow copy of an object's enumerable own properties into a new object. `Object.assign()` also does this.",
+          explanation: "The spread syntax (`...`) can be used to create a shallow copy of an object's enumerable own properties into a new object. `Object.assign()` also does this."
         },
         {
           part: 2,
-          question:
-            "Q81. Which ES6 feature allows iterating directly over iterable objects?",
+          question: "Q81. Which ES6 feature allows iterating directly over iterable objects?",
           options: ["a) forEach()", "b) for...in", "c) for...of", "d) while"],
           correct: "c",
-          explanation:
-            "The `for...of` loop iterates over the values of an iterable object (like Array, String, Map, Set). `for...in` iterates over the keys/properties of an object.",
+          explanation: "The `for...of` loop iterates over the values of an iterable object (like Array, String, Map, Set). `for...in` iterates over the keys/properties of an object."
         },
         {
           part: 2,
           question: "Q82. Which DOM property sets inner HTML text?",
           options: ["a) innerHTML", "b) innerText", "c) value", "d) content"],
           correct: "a",
-          explanation:
-            "The `innerHTML` property gets or sets the HTML markup contained within the element. `innerText` works with just the text content.",
+          explanation: "The `innerHTML` property gets or sets the HTML markup contained within the element. `innerText` works with just the text content."
         },
         {
           part: 2,
           question: "Q83. Which jQuery method hides elements?",
-          options: [
-            'a) .display("none")',
-            "b) .hide()",
-            "c) .invisible()",
-            "d) .remove()",
-          ],
+          options: ['a) .display("none")', "b) .hide()", "c) .invisible()", "d) .remove()"],
           correct: "b",
-          explanation:
-            "The `.hide()` method hides the selected elements, typically by setting their CSS `display` property to `none`.",
+          explanation: "The `.hide()` method hides the selected elements, typically by setting their CSS `display` property to `none`."
         },
         {
           part: 2,
           question: "Q84. Which JS object handles errors?",
           options: ["a) Error", "b) Exception", "c) Throw", "d) Debug"],
           correct: "a",
-          explanation:
-            "The `Error` object is a built-in object that is used when an error occurs. You can also create custom errors by extending it.",
+          explanation: "The `Error` object is a built-in object that is used when an error occurs. You can also create custom errors by extending it."
         },
         {
           part: 2,
           question: "Q85. What is the output?",
           code: 'console.log(1 == "1", 1 === "1");',
-          options: [
-            "a) true true",
-            "b) true false",
-            "c) false true",
-            "d) false false",
-          ],
+          options: ["a) true true", "b) true false", "c) false true", "d) false false"],
           correct: "b",
-          explanation:
-            "`1 == '1'` is `true` because loose equality performs type coercion. `1 === '1'` is `false` because strict equality checks for both value and type, and `number` is not the same as `string`.",
+          explanation: "`1 == '1'` is `true` because loose equality performs type coercion. `1 === '1'` is `false` because strict equality checks for both value and type, and `number` is not the same as `string`."
         },
         {
           part: 2,
           question: "Q86. Which symbol represents regex in JS?",
           options: ['a) ""', "b) //", "c) {}", "d) []"],
           correct: "b",
-          explanation:
-            "A regular expression literal in JavaScript is enclosed between two slashes, e.g., `/pattern/flags`.",
+          explanation: "A regular expression literal in JavaScript is enclosed between two slashes, e.g., `/pattern/flags`."
         },
         {
           part: 2,
           question: "Q87. What does Array.isArray([]) return?",
           options: ["a) true", "b) false", "c) undefined", "d) error"],
           correct: "a",
-          explanation:
-            "`Array.isArray()` is the most reliable way to check if a value is an array. It returns `true` for `[]`.",
+          explanation: "`Array.isArray()` is the most reliable way to check if a value is an array. It returns `true` for `[]`."
         },
         {
           part: 2,
           question: "Q88. Which jQuery method is used to get/set attributes?",
           options: ["a) .prop()", "b) .attr()", "c) .val()", "d) .data()"],
           correct: "b",
-          explanation:
-            "The `.attr()` method is used to get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element.",
+          explanation: "The `.attr()` method is used to get the value of an attribute for the first element in the set of matched elements or set one or more attributes for every matched element."
         },
         {
           part: 2,
-          question:
-            "Q89. What is the default value of this in strict mode inside a function?",
+          question: "Q89. What is the default value of this in strict mode inside a function?",
           options: ["a) window", "b) undefined", "c) null", "d) object"],
           correct: "b",
-          explanation:
-            "In strict mode (`'use strict'`), if `this` is not explicitly set by the call, it remains `undefined`. In non-strict mode, it would default to the global object (e.g., `window`).",
+          explanation: "In strict mode (`'use strict'`), if `this` is not explicitly set by the call, it remains `undefined`. In non-strict mode, it would default to the global object (e.g., `window`)."
         },
         {
           part: 2,
           question: "Q90. Which keyword handles async errors in JS?",
           options: ["a) catch", "b) error", "c) finally", "d) throw"],
           correct: "a",
-          explanation:
-            "For Promises and `async/await`, the `.catch()` method or a `try...catch` block is used to handle rejected promises or errors that occur within an `async` function.",
+          explanation: "For Promises and `async/await`, the `.catch()` method or a `try...catch` block is used to handle rejected promises or errors that occur within an `async` function."
         },
         {
           part: 2,
           question: "Q91. Which event occurs when DOM is fully loaded?",
-          options: [
-            "a) load",
-            "b) DOMContentLoaded",
-            "c) ready",
-            "d) initialize",
-          ],
+          options: ["a) load", "b) DOMContentLoaded", "c) ready", "d) initialize"],
           correct: "b",
-          explanation:
-            "`DOMContentLoaded` fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading. `load` waits for everything.",
+          explanation: "`DOMContentLoaded` fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading. `load` waits for everything."
         },
         {
           part: 2,
           question: "Q92. Which jQuery method loads data from server?",
           options: ["a) .load()", "b) .ajax()", "c) .get()", "d) All of these"],
           correct: "d",
-          explanation:
-            "`.ajax()` is the core method. `.get()` and `.post()` are shorthand methods. `.load()` loads data from the server and places the returned HTML into the matched element.",
+          explanation: "`.ajax()` is the core method. `.get()` and `.post()` are shorthand methods. `.load()` loads data from the server and places the returned HTML into the matched element."
         },
         {
           part: 2,
           question: "Q93. Which array method flattens nested arrays?",
           options: ["a) flat()", "b) reduce()", "c) concat()", "d) flatten()"],
           correct: "a",
-          explanation:
-            "The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.",
+          explanation: "The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth."
         },
         {
           part: 2,
           question: "Q94. Which keyword defines constants in JS?",
           options: ["a) const", "b) let", "c) static", "d) final"],
           correct: "a",
-          explanation:
-            "The `const` keyword creates a block-scoped, read-only reference to a value. The value itself is not immutable, but the variable identifier cannot be reassigned.",
+          explanation: "The `const` keyword creates a block-scoped, read-only reference to a value. The value itself is not immutable, but the variable identifier cannot be reassigned."
         },
         {
           part: 2,
-          question:
-            "Q95. Which jQuery method returns number of matched elements?",
+          question: "Q95. Which jQuery method returns number of matched elements?",
           options: ["a) .count()", "b) .size()", "c) .length", "d) .total()"],
           correct: "c",
-          explanation:
-            "The `.length` property of a jQuery object contains the number of elements in the matched set. `.size()` is a deprecated alias for `.length`.",
+          explanation: "The `.length` property of a jQuery object contains the number of elements in the matched set. `.size()` is a deprecated alias for `.length`."
         },
         {
           part: 2,
@@ -1396,143 +1022,87 @@
           code: "console.log([] == 0);",
           options: ["a) true", "b) false", "c) error", "d) NaN"],
           correct: "a",
-          explanation:
-            "Due to type coercion, `[]` is converted to an empty string `''`, which is then converted to the number `0`. So the comparison becomes `0 == 0`, which is `true`.",
+          explanation: "Due to type coercion, `[]` is converted to an empty string `''`, which is then converted to the number `0`. So the comparison becomes `0 == 0`, which is `true`."
         },
         {
           part: 2,
           question: "Q97. Which operator is used for optional chaining in JS?",
           options: ["a) ??", "b) ?.", "c) &&", "d) ||"],
           correct: "b",
-          explanation:
-            "The optional chaining operator (`?.`) allows you to read the value of a property located deep within a chain of connected objects without having to check that each reference in the chain is valid.",
+          explanation: "The optional chaining operator (`?.`) allows you to read the value of a property located deep within a chain of connected objects without having to check that each reference in the chain is valid."
         },
         {
           part: 2,
           question: "Q98. Which JSON method converts object to string?",
-          options: [
-            "a) JSON.stringify()",
-            "b) JSON.parse()",
-            "c) JSON.toString()",
-            "d) object.toJSON()",
-          ],
+          options: ["a) JSON.stringify()", "b) JSON.parse()", "c) JSON.toString()", "d) object.toJSON()"],
           correct: "a",
-          explanation:
-            "`JSON.stringify()` converts a JavaScript object or value to a JSON string. `JSON.parse()` does the opposite.",
+          explanation: "`JSON.stringify()` converts a JavaScript object or value to a JSON string. `JSON.parse()` does the opposite."
         },
         {
           part: 2,
           question: "Q99. Which jQuery function is used for DOM traversal?",
-          options: [
-            "a) .children()",
-            "b) .parent()",
-            "c) .find()",
-            "d) All of the above",
-          ],
+          options: ["a) .children()", "b) .parent()", "c) .find()", "d) All of the above"],
           correct: "d",
-          explanation:
-            "jQuery provides many methods for DOM traversal. `.children()` gets direct children, `.parent()` gets the direct parent, and `.find()` searches for descendants matching a selector.",
+          explanation: "jQuery provides many methods for DOM traversal. `.children()` gets direct children, `.parent()` gets the direct parent, and `.find()` searches for descendants matching a selector."
         },
         {
           part: 2,
-          question: 'Q100. Which will output "Hello World"?',
-          code: '(function(){\n  console.log("Hello World");\n})();',
-          options: [
-            "a) Normal function",
-            "b) Closure",
-            "c) IIFE (Immediately Invoked Function Expression)",
-            "d) Constructor function",
-          ],
+          question: "Q100. Which will output \"Hello World\"?",
+          code: "(function(){\n  console.log(\"Hello World\");\n})();",
+          options: ["a) Normal function", "b) Closure", "c) IIFE (Immediately Invoked Function Expression)", "d) Constructor function"],
           correct: "c",
-          explanation:
-            "This is an IIFE. It's a function that is defined and then executed immediately. It's often used to create a private scope for variables.",
+          explanation: "This is an IIFE. It's a function that is defined and then executed immediately. It's often used to create a private scope for variables."
         },
-
+        
         // Part 3: Node.js & Express
         {
           part: 3,
-          question:
-            "Q101. Which command initializes a Node.js project with default settings?",
-          options: [
-            "a) npm install",
-            "b) npm init -y",
-            "c) node init",
-            "d) npm start",
-          ],
+          question: "Q101. Which command initializes a Node.js project with default settings?",
+          options: ["a) npm install", "b) npm init -y", "c) node init", "d) npm start"],
           correct: "b",
-          explanation:
-            "`npm init` starts an interactive process to create a `package.json` file. The `-y` flag tells it to automatically use the default settings.",
+          explanation: "`npm init` starts an interactive process to create a `package.json` file. The `-y` flag tells it to automatically use the default settings."
         },
         {
           part: 3,
-          question:
-            "Q102. Which of the following is NOT a Node.js global object?",
-          options: [
-            "a) __dirname",
-            "b) __filename",
-            "c) document",
-            "d) process",
-          ],
+          question: "Q102. Which of the following is NOT a Node.js global object?",
+          options: ["a) __dirname", "b) __filename", "c) document", "d) process"],
           correct: "c",
-          explanation:
-            "`document` is a browser-specific global object that represents the DOM. Node.js runs on a server and does not have a DOM, so `document` is not defined.",
+          explanation: "`document` is a browser-specific global object that represents the DOM. Node.js runs on a server and does not have a DOM, so `document` is not defined."
         },
         {
           part: 3,
-          question:
-            "Q103. Which of these runs JavaScript code outside the browser?",
+          question: "Q103. Which of these runs JavaScript code outside the browser?",
           options: ["a) Node.js", "b) React", "c) Express", "d) jQuery"],
           correct: "a",
-          explanation:
-            "Node.js is a JavaScript runtime environment that allows you to execute JavaScript code on the server, outside of a web browser.",
+          explanation: "Node.js is a JavaScript runtime environment that allows you to execute JavaScript code on the server, outside of a web browser."
         },
         {
           part: 3,
-          question:
-            "Q104. Which method writes synchronous file content in Node?",
-          options: [
-            "a) fs.write()",
-            "b) fs.writeFile()",
-            "c) fs.writeFileSync()",
-            "d) fs.append()",
-          ],
+          question: "Q104. Which method writes synchronous file content in Node?",
+          options: ["a) fs.write()", "b) fs.writeFile()", "c) fs.writeFileSync()", "d) fs.append()"],
           correct: "c",
-          explanation:
-            "In the `fs` module, methods ending with `Sync` are synchronous (blocking). `fs.writeFileSync()` blocks the event loop until the file is written.",
+          explanation: "In the `fs` module, methods ending with `Sync` are synchronous (blocking). `fs.writeFileSync()` blocks the event loop until the file is written."
         },
         {
           part: 3,
           question: "Q105. Node.js is built on which engine?",
           options: ["a) Chakra", "b) SpiderMonkey", "c) V8", "d) Rhino"],
           correct: "c",
-          explanation:
-            "Node.js is built on Chrome's V8 JavaScript engine, which is known for its high performance.",
+          explanation: "Node.js is built on Chrome's V8 JavaScript engine, which is known for its high performance."
         },
         {
           part: 3,
           question: "Q106. What is the role of the Event Loop in Node.js?",
-          options: [
-            "a) Executes only synchronous code",
-            "b) Handles async callbacks and tasks",
-            "c) Provides memory allocation",
-            "d) Acts as compiler",
-          ],
+          options: ["a) Executes only synchronous code", "b) Handles async callbacks and tasks", "c) Provides memory allocation", "d) Acts as compiler"],
           correct: "b",
-          explanation:
-            "The Event Loop is the core of Node.js's non-blocking I/O model. It allows Node.js to perform I/O operations asynchronously by offloading them and processing their callbacks when they complete.",
+          explanation: "The Event Loop is the core of Node.js's non-blocking I/O model. It allows Node.js to perform I/O operations asynchronously by offloading them and processing their callbacks when they complete."
         },
         {
           part: 3,
           question: "Q107. Which of the following is NOT true about Node.js?",
-          options: [
-            "a) Single-threaded",
-            "b) Event-driven",
-            "c) Blocking I/O by default",
-            "d) Non-blocking I/O",
-          ],
+          options: ["a) Single-threaded", "b) Event-driven", "c) Blocking I/O by default", "d) Non-blocking I/O"],
           correct: "c",
-          explanation:
-            "Node.js is fundamentally designed around a non-blocking I/O model. While synchronous (blocking) versions of I/O methods exist, the default and recommended approach is asynchronous.",
+          explanation: "Node.js is fundamentally designed around a non-blocking I/O model. While synchronous (blocking) versions of I/O methods exist, the default and recommended approach is asynchronous."
         },
         {
           part: 3,
@@ -1540,296 +1110,184 @@
           code: 'console.log("A");\nsetTimeout(()=>console.log("B"),0);\nconsole.log("C");',
           options: ["a) A C B", "b) A B C", "c) C A B", "d) B A C"],
           correct: "a",
-          explanation:
-            "Synchronous code (`console.log`) runs first, printing 'A' then 'C'. `setTimeout` schedules its callback to run asynchronously. Even with a 0ms delay, it's placed in the event queue and runs after the current synchronous code finishes, printing 'B' last.",
+          explanation: "Synchronous code (`console.log`) runs first, printing 'A' then 'C'. `setTimeout` schedules its callback to run asynchronously. Even with a 0ms delay, it's placed in the event queue and runs after the current synchronous code finishes, printing 'B' last."
         },
         {
           part: 3,
-          question:
-            "Q109. Which keyword is used with Promises to handle success?",
+          question: "Q109. Which keyword is used with Promises to handle success?",
           options: ["a) catch", "b) then", "c) finally", "d) async"],
           correct: "b",
-          explanation:
-            "The `.then()` method is used to schedule a callback to be executed when a Promise is successfully resolved. `.catch()` handles rejections.",
+          explanation: "The `.then()` method is used to schedule a callback to be executed when a Promise is successfully resolved. `.catch()` handles rejections."
         },
         {
           part: 3,
           question: "Q110. Which keyword is used with async functions in JS?",
           options: ["a) yield", "b) defer", "c) async", "d) promise"],
           correct: "c",
-          explanation:
-            "The `async` keyword is used to declare an `async` function, which allows the use of the `await` keyword inside it to pause execution and wait for a Promise to resolve.",
+          explanation: "The `async` keyword is used to declare an `async` function, which allows the use of the `await` keyword inside it to pause execution and wait for a Promise to resolve."
         },
         {
           part: 3,
-          question:
-            "Q111. Which method schedules a function to run immediately after the current operation?",
-          options: [
-            "a) setTimeout()",
-            "b) setInterval()",
-            "c) process.nextTick()",
-            "d) clearTimeout()",
-          ],
+          question: "Q111. Which method schedules a function to run immediately after the current operation?",
+          options: ["a) setTimeout()", "b) setInterval()", "c) process.nextTick()", "d) clearTimeout()"],
           correct: "c",
-          explanation:
-            "`process.nextTick()` defers the execution of a function until the next pass around the event loop, but before any other I/O events. It runs before `setImmediate()`.",
+          explanation: "`process.nextTick()` defers the execution of a function until the next pass around the event loop, but before any other I/O events. It runs before `setImmediate()`."
         },
         {
           part: 3,
           question: "Q112. Which file defines project dependencies in Node.js?",
-          options: [
-            "a) node_modules",
-            "b) package.json",
-            "c) server.js",
-            "d) index.js",
-          ],
+          options: ["a) node_modules", "b) package.json", "c) server.js", "d) index.js"],
           correct: "b",
-          explanation:
-            "`package.json` is the manifest file for a Node.js project. It contains metadata and lists the project's dependencies.",
+          explanation: "`package.json` is the manifest file for a Node.js project. It contains metadata and lists the project's dependencies."
         },
         {
           part: 3,
           question: "Q113. Which npm command installs a package globally?",
-          options: [
-            "a) npm install pkg --local",
-            "b) npm install pkg -g",
-            "c) npm global pkg",
-            "d) npm add pkg",
-          ],
+          options: ["a) npm install pkg --local", "b) npm install pkg -g", "c) npm global pkg", "d) npm add pkg"],
           correct: "b",
-          explanation:
-            "The `-g` or `--global` flag tells npm to install a package globally, making its command-line tools available from any directory.",
+          explanation: "The `-g` or `--global` flag tells npm to install a package globally, making its command-line tools available from any directory."
         },
         {
           part: 3,
           question: "Q114. What does require() return in Node.js?",
-          options: [
-            "a) JSON string",
-            "b) Module exports object",
-            "c) Function always",
-            "d) Array",
-          ],
+          options: ["a) JSON string", "b) Module exports object", "c) Function always", "d) Array"],
           correct: "b",
-          explanation:
-            "The `require()` function reads a JavaScript file, executes it, and returns the `module.exports` object from that file.",
+          explanation: "The `require()` function reads a JavaScript file, executes it, and returns the `module.exports` object from that file."
         },
         {
           part: 3,
-          question:
-            "Q115. Which module is used for creating a web server in Node.js?",
+          question: "Q115. Which module is used for creating a web server in Node.js?",
           options: ["a) url", "b) http", "c) net", "d) fs"],
           correct: "b",
-          explanation:
-            "The `http` core module provides functionality for creating HTTP servers and making HTTP requests.",
+          explanation: "The `http` core module provides functionality for creating HTTP servers and making HTTP requests."
         },
         {
           part: 3,
-          question:
-            "Q116. Which of these is NOT part of Node.js REPL commands?",
+          question: "Q116. Which of these is NOT part of Node.js REPL commands?",
           options: ["a) .break", "b) .exit", "c) .save", "d) .compile"],
           correct: "d",
-          explanation:
-            "The Node.js REPL (Read-Eval-Print Loop) includes commands like `.break`, `.exit`, `.save`, and `.load`, but not `.compile`.",
+          explanation: "The Node.js REPL (Read-Eval-Print Loop) includes commands like `.break`, `.exit`, `.save`, and `.load`, but not `.compile`."
         },
         {
           part: 3,
           question: "Q117. What is printed?",
           code: 'setImmediate(()=>console.log("Immediate"));\nprocess.nextTick(()=>console.log("NextTick"));\nconsole.log("Sync");',
-          options: [
-            "a) Sync NextTick Immediate",
-            "b) Sync Immediate NextTick",
-            "c) NextTick Sync Immediate",
-            "d) Immediate NextTick Sync",
-          ],
+          options: ["a) Sync NextTick Immediate", "b) Sync Immediate NextTick", "c) NextTick Sync Immediate", "d) Immediate NextTick Sync"],
           correct: "a",
-          explanation:
-            "Synchronous code runs first ('Sync'). `process.nextTick()` has higher priority in the event loop and runs next ('NextTick'). `setImmediate()` runs in the check phase of the event loop, after I/O callbacks ('Immediate').",
+          explanation: "Synchronous code runs first ('Sync'). `process.nextTick()` has higher priority in the event loop and runs next ('NextTick'). `setImmediate()` runs in the check phase of the event loop, after I/O callbacks ('Immediate')."
         },
         {
           part: 3,
-          question:
-            "Q118. Which keyword is used to export a function in Node.js?",
-          options: [
-            "a) export default",
-            "b) module.exports",
-            "c) require()",
-            "d) include()",
-          ],
+          question: "Q118. Which keyword is used to export a function in Node.js?",
+          options: ["a) export default", "b) module.exports", "c) require()", "d) include()"],
           correct: "b",
-          explanation:
-            "In the CommonJS module system used by Node.js, `module.exports` is used to define what a module exports and makes available through `require()`.",
+          explanation: "In the CommonJS module system used by Node.js, `module.exports` is used to define what a module exports and makes available through `require()`."
         },
         {
           part: 3,
           question: "Q119. What does npm stand for?",
-          options: [
-            "a) Node Package Manager",
-            "b) Node Program Manager",
-            "c) Node Process Manager",
-            "d) Node Project Manager",
-          ],
+          options: ["a) Node Package Manager", "b) Node Program Manager", "c) Node Process Manager", "d) Node Project Manager"],
           correct: "a",
-          explanation:
-            "npm stands for Node Package Manager. It is the default package manager for Node.js.",
+          explanation: "npm stands for Node Package Manager. It is the default package manager for Node.js."
         },
         {
           part: 3,
           question: "Q120. Which Node.js core module is used for file I/O?",
           options: ["a) http", "b) fs", "c) path", "d) util"],
           correct: "b",
-          explanation:
-            "The `fs` (File System) module provides an API for interacting with the file system in a manner closely modeled on standard POSIX functions.",
+          explanation: "The `fs` (File System) module provides an API for interacting with the file system in a manner closely modeled on standard POSIX functions."
         },
         {
           part: 3,
-          question:
-            "Q121. Which object in Express represents the HTTP request?",
+          question: "Q121. Which object in Express represents the HTTP request?",
           options: ["a) res", "b) req", "c) next", "d) app"],
           correct: "b",
-          explanation:
-            "In an Express route handler, `req` (short for request) is an object containing information about the incoming HTTP request, such as parameters, headers, and body.",
+          explanation: "In an Express route handler, `req` (short for request) is an object containing information about the incoming HTTP request, such as parameters, headers, and body."
         },
         {
           part: 3,
           question: "Q122. In Express, which method defines middleware?",
-          options: [
-            "a) app.middleware()",
-            "b) app.use()",
-            "c) app.set()",
-            "d) app.get()",
-          ],
+          options: ["a) app.middleware()", "b) app.use()", "c) app.set()", "d) app.get()"],
           correct: "b",
-          explanation:
-            "`app.use()` is used to mount middleware functions at a specified path. The middleware is executed for any request that matches the path.",
+          explanation: "`app.use()` is used to mount middleware functions at a specified path. The middleware is executed for any request that matches the path."
         },
         {
           part: 3,
-          question:
-            "Q123. Which is the correct way to start an Express server?",
+          question: "Q123. Which is the correct way to start an Express server?",
           code: 'app.listen(3000, ()=> console.log("Running"));',
-          options: [
-            "a) Throws error",
-            "b) Starts server on port 3000",
-            "c) Opens browser automatically",
-            "d) Restarts server automatically",
-          ],
+          options: ["a) Throws error", "b) Starts server on port 3000", "c) Opens browser automatically", "d) Restarts server automatically"],
           correct: "b",
-          explanation:
-            "The `app.listen()` function binds and listens for connections on the specified host and port. This code correctly starts a server on port 3000.",
+          explanation: "The `app.listen()` function binds and listens for connections on the specified host and port. This code correctly starts a server on port 3000."
         },
         {
           part: 3,
           question: "Q124. Which Express object sends HTTP response?",
           options: ["a) res", "b) req", "c) next", "d) app"],
           correct: "a",
-          explanation:
-            "`res` (short for response) is an object that the server uses to send a response back to the client. It has methods like `.send()`, `.json()`, and `.status()`.",
+          explanation: "`res` (short for response) is an object that the server uses to send a response back to the client. It has methods like `.send()`, `.json()`, and `.status()`."
         },
         {
           part: 3,
-          question:
-            "Q125. Which of these is a template engine supported by Express?",
+          question: "Q125. Which of these is a template engine supported by Express?",
           options: ["a) EJS", "b) Pug", "c) Handlebars", "d) All of these"],
           correct: "d",
-          explanation:
-            "Express has a pluggable architecture for template engines. EJS, Pug (formerly Jade), and Handlebars are all popular choices that can be integrated with Express.",
+          explanation: "Express has a pluggable architecture for template engines. EJS, Pug (formerly Jade), and Handlebars are all popular choices that can be integrated with Express."
         },
         {
           part: 3,
           question: "Q126. Which Express method handles GET requests?",
-          options: [
-            "a) app.fetch()",
-            "b) app.get()",
-            "c) app.call()",
-            "d) app.send()",
-          ],
+          options: ["a) app.fetch()", "b) app.get()", "c) app.call()", "d) app.send()"],
           correct: "b",
-          explanation:
-            "`app.get()` is used to define a route handler for GET requests to a specific path.",
+          explanation: "`app.get()` is used to define a route handler for GET requests to a specific path."
         },
         {
           part: 3,
-          question:
-            "Q127. Which middleware is used for parsing JSON request bodies?",
-          options: [
-            "a) express.json()",
-            "b) express.urlencoded()",
-            "c) express.body()",
-            "d) body.json()",
-          ],
+          question: "Q127. Which middleware is used for parsing JSON request bodies?",
+          options: ["a) express.json()", "b) express.urlencoded()", "c) express.body()", "d) body.json()"],
           correct: "a",
-          explanation:
-            "`express.json()` is a built-in middleware function in Express that parses incoming requests with JSON payloads. It is based on `body-parser`.",
+          explanation: "`express.json()` is a built-in middleware function in Express that parses incoming requests with JSON payloads. It is based on `body-parser`."
         },
         {
           part: 3,
           question: "Q128. Which Express middleware serves static files?",
-          options: [
-            "a) express.static()",
-            "b) express.files()",
-            "c) app.static()",
-            "d) app.files()",
-          ],
+          options: ["a) express.static()", "b) express.files()", "c) app.static()", "d) app.files()"],
           correct: "a",
-          explanation:
-            "`express.static()` is the built-in middleware for serving static assets such as images, CSS files, and JavaScript files.",
+          explanation: "`express.static()` is the built-in middleware for serving static assets such as images, CSS files, and JavaScript files."
         },
         {
           part: 3,
-          question:
-            "Q129. Which argument of Express route callback represents the next middleware?",
+          question: "Q129. Which argument of Express route callback represents the next middleware?",
           options: ["a) res", "b) req", "c) next", "d) done"],
           correct: "c",
-          explanation:
-            "The `next` argument is a function that, when invoked, passes control to the next middleware function in the stack.",
+          explanation: "The `next` argument is a function that, when invoked, passes control to the next middleware function in the stack."
         },
         {
           part: 3,
           question: "Q130. Which HTTP status means “Forbidden”?",
           options: ["a) 401", "b) 403", "c) 404", "d) 500"],
           correct: "b",
-          explanation:
-            "`403 Forbidden` means the server understood the request but refuses to authorize it. `401 Unauthorized` means the client must authenticate itself to get the requested response.",
+          explanation: "`403 Forbidden` means the server understood the request but refuses to authorize it. `401 Unauthorized` means the client must authenticate itself to get the requested response."
         },
         {
           part: 3,
           question: "Q131. Which command installs Express in Node.js?",
-          options: [
-            "a) npm install express",
-            "b) node install express",
-            "c) install express",
-            "d) npx express",
-          ],
+          options: ["a) npm install express", "b) node install express", "c) install express", "d) npx express"],
           correct: "a",
-          explanation:
-            "`npm install express` (or `npm i express`) is the command to download and add the Express framework to your project's `node_modules` directory and `package.json`.",
+          explanation: "`npm install express` (or `npm i express`) is the command to download and add the Express framework to your project's `node_modules` directory and `package.json`."
         },
         {
           part: 3,
           question: "Q132. Which Express function handles all HTTP methods?",
-          options: [
-            "a) app.use()",
-            "b) app.all()",
-            "c) app.any()",
-            "d) app.route()",
-          ],
+          options: ["a) app.use()", "b) app.all()", "c) app.any()", "d) app.route()"],
           correct: "b",
-          explanation:
-            "`app.all()` is a special routing method used to load middleware functions at a path for all HTTP request methods (GET, POST, PUT, etc.).",
+          explanation: "`app.all()` is a special routing method used to load middleware functions at a path for all HTTP request methods (GET, POST, PUT, etc.)."
         },
         {
           part: 3,
-          question:
-            "Q133. Which Express property sets dynamic route parameters?",
-          options: [
-            "a) req.query",
-            "b) req.body",
-            "c) req.params",
-            "d) req.input",
-          ],
+          question: "Q133. Which Express property sets dynamic route parameters?",
+          options: ["a) req.query", "b) req.body", "c) req.params", "d) req.input"],
           correct: "c",
-          explanation:
-            "`req.params` is an object containing properties mapped to the named route 'parameters'. For a route `/users/:id`, `req.params.id` would contain the value passed in the URL.",
+          explanation: "`req.params` is an object containing properties mapped to the named route 'parameters'. For a route `/users/:id`, `req.params.id` would contain the value passed in the URL."
         },
         {
           part: 3,
@@ -1837,255 +1295,150 @@
           code: 'app.get("/user/:id", (req,res)=>{\n  res.send(req.params.id);\n});',
           options: ["a) user/10", "b) :id", "c) 10", "d) undefined"],
           correct: "c",
-          explanation:
-            "The `:id` in the route path defines a route parameter. Express captures the value `10` from the URL and makes it available in `req.params.id`.",
+          explanation: "The `:id` in the route path defines a route parameter. Express captures the value `10` from the URL and makes it available in `req.params.id`."
         },
         {
           part: 3,
           question: "Q135. Which is NOT a valid HTTP method in Express?",
           options: ["a) TRACE", "b) CONNECT", "c) PATCH", "d) PRINT"],
           correct: "d",
-          explanation:
-            "PRINT is not a standard HTTP request method. Express supports all standard methods like GET, POST, PUT, DELETE, PATCH, OPTIONS, etc.",
+          explanation: "PRINT is not a standard HTTP request method. Express supports all standard methods like GET, POST, PUT, DELETE, PATCH, OPTIONS, etc."
         },
         {
           part: 3,
-          question:
-            "Q136. In Node.js, which module resolves file/directory paths?",
+          question: "Q136. In Node.js, which module resolves file/directory paths?",
           options: ["a) os", "b) path", "c) url", "d) util"],
           correct: "b",
-          explanation:
-            "The `path` module provides utilities for working with file and directory paths in a cross-platform way (e.g., `path.join()`, `path.resolve()`).",
+          explanation: "The `path` module provides utilities for working with file and directory paths in a cross-platform way (e.g., `path.join()`, `path.resolve()`)."
         },
         {
           part: 3,
           question: "Q137. Which npm command updates all packages?",
-          options: [
-            "a) npm update",
-            "b) npm upgrade",
-            "c) npm refresh",
-            "d) npm renew",
-          ],
+          options: ["a) npm update", "b) npm upgrade", "c) npm refresh", "d) npm renew"],
           correct: "a",
-          explanation:
-            "`npm update` will update all the packages listed in `package.json` to the latest version that satisfies the specified version range.",
+          explanation: "`npm update` will update all the packages listed in `package.json` to the latest version that satisfies the specified version range."
         },
         {
           part: 3,
           question: "Q138. Which Express method redirects a request?",
-          options: [
-            "a) res.location()",
-            "b) res.redirect()",
-            "c) res.sendFile()",
-            "d) res.url()",
-          ],
+          options: ["a) res.location()", "b) res.redirect()", "c) res.sendFile()", "d) res.url()"],
           correct: "b",
-          explanation:
-            "`res.redirect()` sends a 302 (Found) redirect response to the client, telling the browser to navigate to a different URL.",
+          explanation: "`res.redirect()` sends a 302 (Found) redirect response to the client, telling the browser to navigate to a different URL."
         },
         {
           part: 3,
           question: "Q139. Which Node.js object emits events?",
-          options: [
-            "a) eventEmitter",
-            "b) events.EventEmitter",
-            "c) emitter",
-            "d) NodeEmitter",
-          ],
+          options: ["a) eventEmitter", "b) events.EventEmitter", "c) emitter", "d) NodeEmitter"],
           correct: "b",
-          explanation:
-            "Many objects in Node.js emit events. These objects inherit from the `EventEmitter` class found in the `events` core module.",
+          explanation: "Many objects in Node.js emit events. These objects inherit from the `EventEmitter` class found in the `events` core module."
         },
         {
           part: 3,
           question: "Q140. Which function in Node reads environment variables?",
-          options: [
-            "a) env.get()",
-            "b) process.env",
-            "c) os.env()",
-            "d) config.env()",
-          ],
+          options: ["a) env.get()", "b) process.env", "c) os.env()", "d) config.env()"],
           correct: "b",
-          explanation:
-            "The `process.env` property returns an object containing the user environment variables.",
+          explanation: "The `process.env` property returns an object containing the user environment variables."
         },
         {
           part: 3,
           question: "Q141. Which Express method handles errors?",
-          options: [
-            "a) app.error()",
-            "b) app.catch()",
-            "c) Middleware with 4 parameters",
-            "d) try-catch block only",
-          ],
+          options: ["a) app.error()", "b) app.catch()", "c) Middleware with 4 parameters", "d) try-catch block only"],
           correct: "c",
-          explanation:
-            "Express error-handling middleware is defined with four arguments: `(err, req, res, next)`. This special signature allows Express to identify it as an error handler.",
+          explanation: "Express error-handling middleware is defined with four arguments: `(err, req, res, next)`. This special signature allows Express to identify it as an error handler."
         },
         {
           part: 3,
-          question:
-            "Q142. Which of the following is NOT a valid Node.js timer function?",
-          options: [
-            "a) setTimeout()",
-            "b) setInterval()",
-            "c) setImmediate()",
-            "d) setRepeat()",
-          ],
+          question: "Q142. Which of the following is NOT a valid Node.js timer function?",
+          options: ["a) setTimeout()", "b) setInterval()", "c) setImmediate()", "d) setRepeat()"],
           correct: "d",
-          explanation:
-            "Node.js provides `setTimeout`, `setInterval`, and `setImmediate` for scheduling code execution. `setRepeat` is not a valid timer function.",
+          explanation: "Node.js provides `setTimeout`, `setInterval`, and `setImmediate` for scheduling code execution. `setRepeat` is not a valid timer function."
         },
         {
           part: 3,
-          question:
-            "Q143. Which HTTP response code indicates “Internal Server Error”?",
+          question: "Q143. Which HTTP response code indicates “Internal Server Error”?",
           options: ["a) 400", "b) 401", "c) 500", "d) 502"],
           correct: "c",
-          explanation:
-            "`500 Internal Server Error` is a generic error message, given when an unexpected condition was encountered and no more specific message is suitable.",
+          explanation: "`500 Internal Server Error` is a generic error message, given when an unexpected condition was encountered and no more specific message is suitable."
         },
         {
           part: 3,
-          question:
-            "Q144. Which Express middleware parses URL-encoded form data?",
-          options: [
-            "a) express.urlencoded()",
-            "b) express.json()",
-            "c) bodyParser.raw()",
-            "d) formParser()",
-          ],
+          question: "Q144. Which Express middleware parses URL-encoded form data?",
+          options: ["a) express.urlencoded()", "b) express.json()", "c) bodyParser.raw()", "d) formParser()"],
           correct: "a",
-          explanation:
-            "`express.urlencoded()` is a built-in middleware function that parses incoming requests with URL-encoded payloads, commonly from HTML form submissions.",
+          explanation: "`express.urlencoded()` is a built-in middleware function that parses incoming requests with URL-encoded payloads, commonly from HTML form submissions."
         },
         {
           part: 3,
           question: "Q145. Which npm command removes a package?",
-          options: [
-            "a) npm delete pkg",
-            "b) npm uninstall pkg",
-            "c) npm remove pkg.json",
-            "d) node uninstall pkg",
-          ],
+          options: ["a) npm delete pkg", "b) npm uninstall pkg", "c) npm remove pkg.json", "d) node uninstall pkg"],
           correct: "b",
-          explanation:
-            "`npm uninstall <package_name>` (or `npm un <package_name>`) is the correct command to remove a package from `node_modules` and `package.json`.",
+          explanation: "`npm uninstall <package_name>` (or `npm un <package_name>`) is the correct command to remove a package from `node_modules` and `package.json`."
         },
         {
           part: 3,
           question: "Q146. What is printed?",
           code: 'const fs = require("fs");\nfs.readFile("nofile.txt", (err,data)=>{\n  console.log(err ? "Error" : data);\n});',
-          options: [
-            "a) File content",
-            "b) Error",
-            "c) undefined",
-            "d) Crashes",
-          ],
+          options: ["a) File content", "b) Error", "c) undefined", "d) Crashes"],
           correct: "b",
-          explanation:
-            "Since 'nofile.txt' does not exist, `fs.readFile` will fail. The callback will be invoked with an `err` object. The ternary operator `err ? 'Error' : data` will evaluate to 'Error' and log it.",
+          explanation: "Since 'nofile.txt' does not exist, `fs.readFile` will fail. The callback will be invoked with an `err` object. The ternary operator `err ? 'Error' : data` will evaluate to 'Error' and log it."
         },
         {
           part: 3,
           question: "Q147. In Express, what does next() do?",
-          options: [
-            "a) Ends request",
-            "b) Sends response",
-            "c) Passes control to next middleware",
-            "d) Restarts server",
-          ],
+          options: ["a) Ends request", "b) Sends response", "c) Passes control to next middleware", "d) Restarts server"],
           correct: "c",
-          explanation:
-            "Calling the `next()` function in a middleware tells Express to move on and execute the next middleware or route handler in the chain.",
+          explanation: "Calling the `next()` function in a middleware tells Express to move on and execute the next middleware or route handler in the chain."
         },
         {
           part: 3,
           question: "Q148. Which is true about middleware in Express?",
-          options: [
-            "a) Can modify req and res",
-            "b) Executes in order defined",
-            "c) Can terminate request",
-            "d) All of the above",
-          ],
+          options: ["a) Can modify req and res", "b) Executes in order defined", "c) Can terminate request", "d) All of the above"],
           correct: "d",
-          explanation:
-            "Middleware functions have access to the request (`req`) and response (`res`) objects, can execute any code, make changes, terminate the request-response cycle, and call the next middleware.",
+          explanation: "Middleware functions have access to the request (`req`) and response (`res`) objects, can execute any code, make changes, terminate the request-response cycle, and call the next middleware."
         },
         {
           part: 3,
           question: "Q149. Which Express method sets headers?",
-          options: [
-            "a) res.set()",
-            "b) res.headers()",
-            "c) res.addHeader()",
-            "d) res.config()",
-          ],
+          options: ["a) res.set()", "b) res.headers()", "c) res.addHeader()", "d) res.config()"],
           correct: "a",
-          explanation:
-            "`res.set()` is used to set a single HTTP response header. It's an alias of `res.header()`.",
+          explanation: "`res.set()` is used to set a single HTTP response header. It's an alias of `res.header()`."
         },
         {
           part: 3,
           question: "Q150. Which Express function serves JSON data?",
-          options: [
-            "a) res.send()",
-            "b) res.json()",
-            "c) res.writeJSON()",
-            "d) res.data()",
-          ],
+          options: ["a) res.send()", "b) res.json()", "c) res.writeJSON()", "d) res.data()"],
           correct: "b",
-          explanation:
-            "`res.json()` sends a JSON response. This method sends a response that is the parameter converted to a JSON string and automatically sets the `Content-Type` header to `application/json`.",
+          explanation: "`res.json()` sends a JSON response. This method sends a response that is the parameter converted to a JSON string and automatically sets the `Content-Type` header to `application/json`."
         },
-
+        
         // Part 4: React & Redux
         {
           part: 4,
           question: "Q151. React is primarily used for:",
-          options: [
-            "a) Backend APIs",
-            "b) Database queries",
-            "c) Building UI components",
-            "d) Styling",
-          ],
+          options: ["a) Backend APIs", "b) Database queries", "c) Building UI components", "d) Styling"],
           correct: "c",
-          explanation:
-            "React is a JavaScript library for building user interfaces. Its core concept is creating reusable UI components.",
+          explanation: "React is a JavaScript library for building user interfaces. Its core concept is creating reusable UI components."
         },
         {
           part: 4,
           question: "Q152. Which is NOT a feature of React?",
-          options: [
-            "a) Virtual DOM",
-            "b) One-way data binding",
-            "c) Built-in router",
-            "d) Component-based architecture",
-          ],
+          options: ["a) Virtual DOM", "b) One-way data binding", "c) Built-in router", "d) Component-based architecture"],
           correct: "c",
-          explanation:
-            "React itself does not include a router. Routing is typically handled by third-party libraries like React Router.",
+          explanation: "React itself does not include a router. Routing is typically handled by third-party libraries like React Router."
         },
         {
           part: 4,
           question: "Q153. Which command creates a new React app?",
-          options: [
-            "a) npx create-react-app myApp",
-            "b) node create-react-app myApp",
-            "c) npm init react myApp",
-            "d) react new myApp",
-          ],
+          options: ["a) npx create-react-app myApp", "b) node create-react-app myApp", "c) npm init react myApp", "d) react new myApp"],
           correct: "a",
-          explanation:
-            "`create-react-app` is the officially supported way to create single-page React applications. `npx` is a package runner tool that comes with npm.",
+          explanation: "`create-react-app` is the officially supported way to create single-page React applications. `npx` is a package runner tool that comes with npm."
         },
         {
           part: 4,
           question: "Q154. Which hook is used for side effects in React?",
           options: ["a) useState", "b) useEffect", "c) useMemo", "d) useRef"],
           correct: "b",
-          explanation:
-            "The `useEffect` hook lets you perform side effects in function components, such as data fetching, subscriptions, or manually changing the DOM.",
+          explanation: "The `useEffect` hook lets you perform side effects in function components, such as data fetching, subscriptions, or manually changing the DOM."
         },
         {
           part: 4,
@@ -2093,562 +1446,326 @@
           code: "function App() {\n  const [count,setCount] = React.useState(0);\n  setCount(count+1);\n  return <h1>{count}</h1>;\n}",
           options: ["a) Infinite re-render", "b) 1", "c) 0", "d) Error"],
           correct: "a",
-          explanation:
-            "Calling `setCount` inside the component body triggers a re-render. This re-render will again call `setCount`, leading to an infinite loop of re-renders. State updates should be done in event handlers or `useEffect`.",
+          explanation: "Calling `setCount` inside the component body triggers a re-render. This re-render will again call `setCount`, leading to an infinite loop of re-renders. State updates should be done in event handlers or `useEffect`."
         },
         {
           part: 4,
           question: "Q156. Which lifecycle method is replaced by useEffect?",
-          options: [
-            "a) componentDidMount",
-            "b) componentDidUpdate",
-            "c) componentWillUnmount",
-            "d) All of these",
-          ],
+          options: ["a) componentDidMount", "b) componentDidUpdate", "c) componentWillUnmount", "d) All of these"],
           correct: "d",
-          explanation:
-            "`useEffect` can replicate the functionality of all three: `componentDidMount` (empty dependency array), `componentDidUpdate` (dependency array with values), and `componentWillUnmount` (return a cleanup function).",
+          explanation: "`useEffect` can replicate the functionality of all three: `componentDidMount` (empty dependency array), `componentDidUpdate` (dependency array with values), and `componentWillUnmount` (return a cleanup function)."
         },
         {
           part: 4,
           question: "Q157. In React, props are:",
           options: ["a) Mutable", "b) Immutable", "c) Functions", "d) Hooks"],
           correct: "b",
-          explanation:
-            "Props (properties) are read-only. A component must never modify its own props. State is used for data that a component can change over time.",
+          explanation: "Props (properties) are read-only. A component must never modify its own props. State is used for data that a component can change over time."
         },
         {
           part: 4,
           question: "Q158. Which is NOT a valid React component type?",
-          options: [
-            "a) Class component",
-            "b) Function component",
-            "c) Arrow component",
-            "d) Higher-order component",
-          ],
+          options: ["a) Class component", "b) Function component", "c) Arrow component", "d) Higher-order component"],
           correct: "c",
-          explanation:
-            "While you can define a function component using an arrow function, 'Arrow component' is not a formal type. Class, Function, and Higher-Order Components are established patterns.",
+          explanation: "While you can define a function component using an arrow function, 'Arrow component' is not a formal type. Class, Function, and Higher-Order Components are established patterns."
         },
         {
           part: 4,
           question: "Q159. JSX is:",
-          options: [
-            "a) A templating engine",
-            "b) JavaScript XML syntax",
-            "c) JSON extension",
-            "d) HTML replacement",
-          ],
+          options: ["a) A templating engine", "b) JavaScript XML syntax", "c) JSON extension", "d) HTML replacement"],
           correct: "b",
-          explanation:
-            "JSX is a syntax extension for JavaScript that looks like HTML. It allows you to write UI structures in a familiar way, which is then compiled into `React.createElement()` calls.",
+          explanation: "JSX is a syntax extension for JavaScript that looks like HTML. It allows you to write UI structures in a familiar way, which is then compiled into `React.createElement()` calls."
         },
         {
           part: 4,
-          question:
-            "Q160. Which property is required when rendering list items?",
+          question: "Q160. Which property is required when rendering list items?",
           options: ["a) key", "b) id", "c) ref", "d) index"],
           correct: "a",
-          explanation:
-            "The `key` prop is a special string attribute you need to include when creating lists of elements. It helps React identify which items have changed, are added, or are removed, improving performance.",
+          explanation: "The `key` prop is a special string attribute you need to include when creating lists of elements. It helps React identify which items have changed, are added, or are removed, improving performance."
         },
         {
           part: 4,
           question: "Q161. What will happen?",
           code: "return (\n  <>\n    <h1>Hello</h1>\n    <h1>World</h1>\n  </>\n);",
-          options: [
-            "a) Error – multiple root elements not allowed",
-            "b) Renders both using Fragment",
-            "c) Renders only Hello",
-            "d) Renders only World",
-          ],
+          options: ["a) Error – multiple root elements not allowed", "b) Renders both using Fragment", "c) Renders only Hello", "d) Renders only World"],
           correct: "b",
-          explanation:
-            "A component must return a single root element. `<>` is shorthand for `<React.Fragment>`, which allows you to group a list of children without adding extra nodes to the DOM.",
+          explanation: "A component must return a single root element. `<>` is shorthand for `<React.Fragment>`, which allows you to group a list of children without adding extra nodes to the DOM."
         },
         {
           part: 4,
-          question:
-            "Q162. Which hook is used for accessing previous values without re-render?",
+          question: "Q162. Which hook is used for accessing previous values without re-render?",
           options: ["a) useMemo", "b) useEffect", "c) useRef", "d) useState"],
           correct: "c",
-          explanation:
-            "`useRef` returns a mutable ref object whose `.current` property can be updated. Changing it does not trigger a re-render, making it suitable for storing previous state or values.",
+          explanation: "`useRef` returns a mutable ref object whose `.current` property can be updated. Changing it does not trigger a re-render, making it suitable for storing previous state or values."
         },
         {
           part: 4,
           question: "Q163. Which method updates state in class components?",
-          options: [
-            "a) this.state = …",
-            "b) this.setState()",
-            "c) this.updateState()",
-            "d) state.set()",
-          ],
+          options: ["a) this.state = …", "b) this.setState()", "c) this.updateState()", "d) state.set()"],
           correct: "b",
-          explanation:
-            "`this.setState()` is the correct way to update state in a class component. It schedules an update and tells React to re-render the component and its children.",
+          explanation: "`this.setState()` is the correct way to update state in a class component. It schedules an update and tells React to re-render the component and its children."
         },
         {
           part: 4,
-          question:
-            "Q164. Which hook prevents unnecessary re-render by memoizing values?",
+          question: "Q164. Which hook prevents unnecessary re-render by memoizing values?",
           options: ["a) useMemo", "b) useEffect", "c) useState", "d) useRef"],
           correct: "a",
-          explanation:
-            "`useMemo` memoizes the result of a function call. It will only recompute the memoized value when one of the dependencies has changed, preventing expensive calculations on every render.",
+          explanation: "`useMemo` memoizes the result of a function call. It will only recompute the memoized value when one of the dependencies has changed, preventing expensive calculations on every render."
         },
         {
           part: 4,
-          question:
-            "Q165. Which React feature allows passing data down without props drilling?",
+          question: "Q165. Which React feature allows passing data down without props drilling?",
           options: ["a) Context API", "b) Redux", "c) useMemo", "d) Fragments"],
           correct: "a",
-          explanation:
-            "The Context API provides a way to pass data through the component tree without having to pass props down manually at every level. Redux is a separate library that also solves this problem.",
+          explanation: "The Context API provides a way to pass data through the component tree without having to pass props down manually at every level. Redux is a separate library that also solves this problem."
         },
         {
           part: 4,
           question: "Q166. What is React Fiber?",
-          options: [
-            "a) New algorithm for reconciliation",
-            "b) A CSS library",
-            "c) A database",
-            "d) A Node.js library",
-          ],
+          options: ["a) New algorithm for reconciliation", "b) A CSS library", "c) A database", "d) A Node.js library"],
           correct: "a",
-          explanation:
-            "React Fiber is a complete rewrite of React's core algorithm (the reconciler). It enables features like incremental rendering, allowing it to pause and resume work to avoid blocking the main thread.",
+          explanation: "React Fiber is a complete rewrite of React's core algorithm (the reconciler). It enables features like incremental rendering, allowing it to pause and resume work to avoid blocking the main thread."
         },
         {
           part: 4,
           question: "Q167. Which of these is NOT true for React keys?",
-          options: [
-            "a) Improve list rendering performance",
-            "b) Must be unique among siblings",
-            "c) Used for styling",
-            "d) Help React identify changes",
-          ],
+          options: ["a) Improve list rendering performance", "b) Must be unique among siblings", "c) Used for styling", "d) Help React identify changes"],
           correct: "c",
-          explanation:
-            "Keys are used by React's diffing algorithm for efficient updates of lists. They are not passed as props to the component and cannot be used for styling or any other purpose.",
+          explanation: "Keys are used by React's diffing algorithm for efficient updates of lists. They are not passed as props to the component and cannot be used for styling or any other purpose."
         },
         {
           part: 4,
           question: "Q168. Which method is used to handle errors in React?",
-          options: [
-            "a) Error Boundaries",
-            "b) try-catch only",
-            "c) Redux",
-            "d) Suspense",
-          ],
+          options: ["a) Error Boundaries", "b) try-catch only", "c) Redux", "d) Suspense"],
           correct: "a",
-          explanation:
-            "Error Boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the crashed component tree.",
+          explanation: "Error Boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the crashed component tree."
         },
         {
           part: 4,
           question: "Q169. Which is true about controlled components?",
-          options: [
-            "a) Input state handled by DOM",
-            "b) Input state handled by React state",
-            "c) Cannot use forms",
-            "d) Only for select elements",
-          ],
+          options: ["a) Input state handled by DOM", "b) Input state handled by React state", "c) Cannot use forms", "d) Only for select elements"],
           correct: "b",
-          explanation:
-            "In a controlled component, form data is handled by a React component's state. The form element's value is driven by the React state, making React the 'single source of truth'.",
+          explanation: "In a controlled component, form data is handled by a React component's state. The form element's value is driven by the React state, making React the 'single source of truth'."
         },
         {
           part: 4,
-          question:
-            "Q170. Which of the following suspends rendering in React until data is ready?",
-          options: [
-            "a) useMemo",
-            "b) Suspense",
-            "c) useDeferredValue",
-            "d) useLayoutEffect",
-          ],
+          question: "Q170. Which of the following suspends rendering in React until data is ready?",
+          options: ["a) useMemo", "b) Suspense", "c) useDeferredValue", "d) useLayoutEffect"],
           correct: "b",
-          explanation:
-            "Suspense lets you declaratively specify loading states (like a spinner) for a part of the component tree if the data it is rendering is not yet ready, for example during asynchronous data fetching.",
+          explanation: "Suspense lets you declaratively specify loading states (like a spinner) for a part of the component tree if the data it is rendering is not yet ready, for example during asynchronous data fetching."
         },
         {
           part: 4,
           question: "Q171. Which hook is used to optimize callback functions?",
-          options: [
-            "a) useMemo",
-            "b) useEffect",
-            "c) useCallback",
-            "d) useState",
-          ],
+          options: ["a) useMemo", "b) useEffect", "c) useCallback", "d) useState"],
           correct: "c",
-          explanation:
-            "`useCallback` returns a memoized version of the callback function that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized child components.",
+          explanation: "`useCallback` returns a memoized version of the callback function that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized child components."
         },
         {
           part: 4,
-          question:
-            "Q172. Which component wraps multiple child routes in React Router?",
-          options: [
-            "a) Switch (v5) / Routes (v6)",
-            "b) RouteGroup",
-            "c) RouterContainer",
-            "d) Navigation",
-          ],
+          question: "Q172. Which component wraps multiple child routes in React Router?",
+          options: ["a) Switch (v5) / Routes (v6)", "b) RouteGroup", "c) RouterContainer", "d) Navigation"],
           correct: "a",
-          explanation:
-            "In React Router v6, the `<Routes>` component is used to group multiple `<Route>` elements. It will render only the first route that matches the current URL.",
+          explanation: "In React Router v6, the `<Routes>` component is used to group multiple `<Route>` elements. It will render only the first route that matches the current URL."
         },
         {
           part: 4,
-          question:
-            "Q173. What is the correct syntax for conditional rendering?",
-          options: [
-            "a) {if (true) Hi}",
-            "b) {true && Hi}",
-            "c) {true ? Hi}",
-            "d) Both b and c",
-          ],
+          question: "Q173. What is the correct syntax for conditional rendering?",
+          options: ["a) {if (true) Hi}", "b) {true && Hi}", "c) {true ? Hi}", "d) Both b and c"],
           correct: "d",
-          explanation:
-            "You cannot use `if` statements directly in JSX. Instead, you use the ternary operator `(condition ? ... : ...)` or the logical AND `&&` operator for conditional rendering.",
+          explanation: "You cannot use `if` statements directly in JSX. Instead, you use the ternary operator `(condition ? ... : ...)` or the logical AND `&&` operator for conditional rendering."
         },
         {
           part: 4,
           question: "Q174. Redux is primarily used for:",
-          options: [
-            "a) Styling",
-            "b) State management",
-            "c) Routing",
-            "d) Rendering",
-          ],
+          options: ["a) Styling", "b) State management", "c) Routing", "d) Rendering"],
           correct: "b",
-          explanation:
-            "Redux is a predictable state container for JavaScript apps. It helps you manage the application's state in a single, global store, making state changes more predictable and traceable.",
+          explanation: "Redux is a predictable state container for JavaScript apps. It helps you manage the application's state in a single, global store, making state changes more predictable and traceable."
         },
         {
           part: 4,
           question: "Q175. Which Redux concept describes how state changes?",
           options: ["a) Reducers", "b) Actions", "c) Store", "d) Middleware"],
           correct: "a",
-          explanation:
-            "Reducers are pure functions that take the current state and an action as arguments, and return a new state. They are responsible for specifying how the application's state changes in response to actions.",
+          explanation: "Reducers are pure functions that take the current state and an action as arguments, and return a new state. They are responsible for specifying how the application's state changes in response to actions."
         },
         {
           part: 4,
           question: "Q176. Redux store can have how many stores ideally?",
-          options: [
-            "a) One per component",
-            "b) Multiple stores",
-            "c) Only one store",
-            "d) Unlimited stores",
-          ],
+          options: ["a) One per component", "b) Multiple stores", "c) Only one store", "d) Unlimited stores"],
           correct: "c",
-          explanation:
-            "A core principle of Redux is having a single source of truth. The entire state of your application is stored in an object tree within a single store.",
+          explanation: "A core principle of Redux is having a single source of truth. The entire state of your application is stored in an object tree within a single store."
         },
         {
           part: 4,
           question: "Q177. Which Redux function dispatches actions?",
-          options: [
-            "a) store.fire()",
-            "b) store.run()",
-            "c) store.dispatch()",
-            "d) store.push()",
-          ],
+          options: ["a) store.fire()", "b) store.run()", "c) store.dispatch()", "d) store.push()"],
           correct: "c",
-          explanation:
-            "`store.dispatch(action)` is the only way to trigger a state change. It sends an action object to the store, which then calls the reducer.",
+          explanation: "`store.dispatch(action)` is the only way to trigger a state change. It sends an action object to the store, which then calls the reducer."
         },
         {
           part: 4,
           question: "Q178. Which Redux middleware is used for async actions?",
           options: ["a) thunk", "b) saga", "c) promise", "d) All of these"],
           correct: "d",
-          explanation:
-            "Redux middleware allows for side effects. Redux Thunk, Redux Saga, and others are popular choices for handling asynchronous logic like API calls.",
+          explanation: "Redux middleware allows for side effects. Redux Thunk, Redux Saga, and others are popular choices for handling asynchronous logic like API calls."
         },
         {
           part: 4,
           question: "Q179. Which statement is true about actions in Redux?",
-          options: [
-            "a) Must be plain objects",
-            "b) Must have a type property",
-            "c) Describe events",
-            "d) All of the above",
-          ],
+          options: ["a) Must be plain objects", "b) Must have a type property", "c) Describe events", "d) All of the above"],
           correct: "d",
-          explanation:
-            "Actions are plain JavaScript objects that represent an intention to change the state. They must have a `type` property to indicate the type of action being performed.",
+          explanation: "Actions are plain JavaScript objects that represent an intention to change the state. They must have a `type` property to indicate the type of action being performed."
         },
         {
           part: 4,
-          question:
-            "Q180. Which hook connects React components to Redux store?",
-          options: [
-            "a) useRedux()",
-            "b) useSelector / useDispatch",
-            "c) useContext",
-            "d) useRef",
-          ],
+          question: "Q180. Which hook connects React components to Redux store?",
+          options: ["a) useRedux()", "b) useSelector / useDispatch", "c) useContext", "d) useRef"],
           correct: "b",
-          explanation:
-            "The `react-redux` library provides hooks to interact with the Redux store. `useSelector` reads a value from the store state, and `useDispatch` gets the `dispatch` function.",
+          explanation: "The `react-redux` library provides hooks to interact with the Redux store. `useSelector` reads a value from the store state, and `useDispatch` gets the `dispatch` function."
         },
         {
           part: 4,
           question: "Q181. What is the role of combineReducers()?",
-          options: [
-            "a) Merge multiple reducers",
-            "b) Combine actions",
-            "c) Combine middleware",
-            "d) Create new store",
-          ],
+          options: ["a) Merge multiple reducers", "b) Combine actions", "c) Combine middleware", "d) Create new store"],
           correct: "a",
-          explanation:
-            "`combineReducers` is a utility function from Redux that helps you combine multiple reducer functions, each managing a slice of the state, into a single root reducer.",
+          explanation: "`combineReducers` is a utility function from Redux that helps you combine multiple reducer functions, each managing a slice of the state, into a single root reducer."
         },
         {
           part: 4,
           question: "Q182. Which of the following is NOT true for Redux store?",
-          options: [
-            "a) Holds app state",
-            "b) Read-only state",
-            "c) Updated via reducers",
-            "d) Directly mutated",
-          ],
+          options: ["a) Holds app state", "b) Read-only state", "c) Updated via reducers", "d) Directly mutated"],
           correct: "d",
-          explanation:
-            "A core principle of Redux is that state is immutable. Reducers must not mutate the state directly; instead, they must return a new state object.",
+          explanation: "A core principle of Redux is that state is immutable. Reducers must not mutate the state directly; instead, they must return a new state object."
         },
         {
           part: 4,
           question: "Q183. What is the default state in a reducer?",
-          options: [
-            "a) undefined",
-            "b) {}",
-            "c) Initial state passed as argument",
-            "d) null",
-          ],
+          options: ["a) undefined", "b) {}", "c) Initial state passed as argument", "d) null"],
           correct: "c",
-          explanation:
-            "A reducer function typically accepts `(state = initialState, action)`. If the `state` passed to it is `undefined`, it will use the `initialState` value.",
+          explanation: "A reducer function typically accepts `(state = initialState, action)`. If the `state` passed to it is `undefined`, it will use the `initialState` value."
         },
         {
           part: 4,
           question: "Q184. Which of the following is NOT part of Redux cycle?",
-          options: [
-            "a) Dispatch action",
-            "b) Reducer updates state",
-            "c) Store notifies subscribers",
-            "d) Component updates store manually",
-          ],
+          options: ["a) Dispatch action", "b) Reducer updates state", "c) Store notifies subscribers", "d) Component updates store manually"],
           correct: "d",
-          explanation:
-            "Components do not update the store manually. They dispatch actions, which causes the reducer to calculate a new state, and the store then notifies the subscribed components of the change.",
+          explanation: "Components do not update the store manually. They dispatch actions, which causes the reducer to calculate a new state, and the store then notifies the subscribed components of the change."
         },
         {
           part: 4,
           question: "Q185. In React-Redux, <Provider> is used for:",
-          options: [
-            "a) Passing store via Context",
-            "b) Registering reducers",
-            "c) Rendering JSX",
-            "d) Handling async",
-          ],
+          options: ["a) Passing store via Context", "b) Registering reducers", "c) Rendering JSX", "d) Handling async"],
           correct: "a",
-          explanation:
-            "The `<Provider>` component from `react-redux` makes the Redux store available to any nested components that need to access it, using React's Context API internally.",
+          explanation: "The `<Provider>` component from `react-redux` makes the Redux store available to any nested components that need to access it, using React's Context API internally."
         },
         {
           part: 4,
           question: "Q186. What will happen?",
           code: "const [val,setVal] = useState(0);\nuseEffect(()=>console.log(val),[]);",
-          options: [
-            "a) Logs only initial value",
-            "b) Logs on every render",
-            "c) Logs on val change",
-            "d) Error",
-          ],
+          options: ["a) Logs only initial value", "b) Logs on every render", "c) Logs on val change", "d) Error"],
           correct: "a",
-          explanation:
-            "The empty dependency array `[]` tells `useEffect` to run only once, after the initial render. It will log the initial value of `val`, which is 0, and will not run again.",
+          explanation: "The empty dependency array `[]` tells `useEffect` to run only once, after the initial render. It will log the initial value of `val`, which is 0, and will not run again."
         },
         {
           part: 4,
-          question:
-            "Q187. Which React hook can cause memory leaks if not cleaned?",
-          options: [
-            "a) useEffect with subscriptions",
-            "b) useState",
-            "c) useMemo",
-            "d) useRef",
-          ],
+          question: "Q187. Which React hook can cause memory leaks if not cleaned?",
+          options: ["a) useEffect with subscriptions", "b) useState", "c) useMemo", "d) useRef"],
           correct: "a",
-          explanation:
-            "If you set up a subscription (like `setInterval` or an event listener) in `useEffect`, you must return a cleanup function to remove that subscription when the component unmounts to prevent memory leaks.",
+          explanation: "If you set up a subscription (like `setInterval` or an event listener) in `useEffect`, you must return a cleanup function to remove that subscription when the component unmounts to prevent memory leaks."
         },
         {
           part: 4,
           question: "Q188. Which Redux hook gets state values?",
-          options: [
-            "a) useDispatch",
-            "b) useSelector",
-            "c) useStore",
-            "d) useEffect",
-          ],
+          options: ["a) useDispatch", "b) useSelector", "c) useStore", "d) useEffect"],
           correct: "b",
-          explanation:
-            "`useSelector` is the hook that allows your React component to extract data from the Redux store state.",
+          explanation: "`useSelector` is the hook that allows your React component to extract data from the Redux store state."
         },
         {
           part: 4,
           question: "Q189. What is the output?",
           code: 'const App=()=> <button onClick={()=>alert("Hi")}>Click</button>',
-          options: [
-            "a) Button with alert on click",
-            "b) Syntax error",
-            "c) Nothing renders",
-            "d) Console logs Hi",
-          ],
+          options: ["a) Button with alert on click", "b) Syntax error", "c) Nothing renders", "d) Console logs Hi"],
           correct: "a",
-          explanation:
-            "This is a valid functional component in React that renders a button. When the button is clicked, the inline `onClick` handler will execute `alert('Hi')`.",
+          explanation: "This is a valid functional component in React that renders a button. When the button is clicked, the inline `onClick` handler will execute `alert('Hi')`."
         },
         {
           part: 4,
-          question:
-            "Q190. Which Redux concept allows async middleware chaining?",
+          question: "Q190. Which Redux concept allows async middleware chaining?",
           options: ["a) Reducers", "b) Actions", "c) Middleware", "d) Store"],
           correct: "c",
-          explanation:
-            "Redux middleware provides a third-party extension point between dispatching an action and the moment it reaches the reducer. Multiple middleware can be chained together to handle logging, async calls, etc.",
+          explanation: "Redux middleware provides a third-party extension point between dispatching an action and the moment it reaches the reducer. Multiple middleware can be chained together to handle logging, async calls, etc."
         },
         {
           part: 4,
-          question:
-            "Q191. Which hook executes synchronously after DOM updates?",
-          options: [
-            "a) useEffect",
-            "b) useLayoutEffect",
-            "c) useMemo",
-            "d) useRef",
-          ],
+          question: "Q191. Which hook executes synchronously after DOM updates?",
+          options: ["a) useEffect", "b) useLayoutEffect", "c) useMemo", "d) useRef"],
           correct: "b",
-          explanation:
-            "`useLayoutEffect` fires synchronously after all DOM mutations. This is useful for reading layout from the DOM and synchronously re-rendering. `useEffect` fires asynchronously.",
+          explanation: "`useLayoutEffect` fires synchronously after all DOM mutations. This is useful for reading layout from the DOM and synchronously re-rendering. `useEffect` fires asynchronously."
         },
         {
           part: 4,
           question: "Q192. Which of these is NOT a valid Redux principle?",
-          options: [
-            "a) Single source of truth",
-            "b) State is read-only",
-            "c) Reducers are pure",
-            "d) Store updates itself automatically",
-          ],
+          options: ["a) Single source of truth", "b) State is read-only", "c) Reducers are pure", "d) Store updates itself automatically"],
           correct: "d",
-          explanation:
-            "The store does not update itself. It is updated only when you `dispatch` an action, which causes the root reducer to be called to produce the next state.",
+          explanation: "The store does not update itself. It is updated only when you `dispatch` an action, which causes the root reducer to be called to produce the next state."
         },
         {
           part: 4,
-          question:
-            "Q193. Which React feature enables error isolation in UI tree?",
-          options: [
-            "a) Error Boundaries",
-            "b) Context API",
-            "c) Suspense",
-            "d) Reducers",
-          ],
+          question: "Q193. Which React feature enables error isolation in UI tree?",
+          options: ["a) Error Boundaries", "b) Context API", "c) Suspense", "d) Reducers"],
           correct: "a",
-          explanation:
-            "Error Boundaries are class components that can catch JavaScript errors in their child component tree and render a fallback UI, preventing the entire application from crashing.",
+          explanation: "Error Boundaries are class components that can catch JavaScript errors in their child component tree and render a fallback UI, preventing the entire application from crashing."
         },
         {
           part: 4,
           question: "Q194. Which will cause unnecessary re-renders?",
-          options: [
-            "a) Using inline arrow functions as props",
-            "b) Using memoized callbacks",
-            "c) Using React.memo",
-            "d) Using useMemo",
-          ],
+          options: ["a) Using inline arrow functions as props", "b) Using memoized callbacks", "c) Using React.memo", "d) Using useMemo"],
           correct: "a",
-          explanation:
-            "When you pass an inline arrow function like `onClick={() => {}}` to a child component, a new function is created on every render. If the child component is optimized with `React.memo`, it will still re-render because the prop changed.",
+          explanation: "When you pass an inline arrow function like `onClick={() => {}}` to a child component, a new function is created on every render. If the child component is optimized with `React.memo`, it will still re-render because the prop changed."
         },
         {
           part: 4,
           question: "Q195. Which Redux middleware handles async generators?",
           options: ["a) thunk", "b) saga", "c) promise", "d) epic"],
           correct: "b",
-          explanation:
-            "Redux Saga is a middleware that uses ES6 Generators to make asynchronous flows easy to read, write, and test.",
+          explanation: "Redux Saga is a middleware that uses ES6 Generators to make asynchronous flows easy to read, write, and test."
         },
         {
           part: 4,
-          question:
-            "Q196. Which React method is called before DOM updates in class components?",
-          options: [
-            "a) componentDidMount",
-            "b) componentWillUnmount",
-            "c) getSnapshotBeforeUpdate",
-            "d) shouldComponentUpdate",
-          ],
+          question: "Q196. Which React method is called before DOM updates in class components?",
+          options: ["a) componentDidMount", "b) componentWillUnmount", "c) getSnapshotBeforeUpdate", "d) shouldComponentUpdate"],
           correct: "c",
-          explanation:
-            "`getSnapshotBeforeUpdate()` is invoked right before the most recently rendered output is committed to the DOM. It enables your component to capture some information from the DOM before it is potentially changed.",
+          explanation: "`getSnapshotBeforeUpdate()` is invoked right before the most recently rendered output is committed to the DOM. It enables your component to capture some information from the DOM before it is potentially changed."
         },
         {
           part: 4,
-          question:
-            "Q197. Which hook stores value across renders but doesn’t trigger re-render?",
+          question: "Q197. Which hook stores value across renders but doesn’t trigger re-render?",
           options: ["a) useState", "b) useEffect", "c) useRef", "d) useMemo"],
           correct: "c",
-          explanation:
-            "`useRef` creates a mutable object that persists for the lifetime of the component. Updating its `.current` property does not trigger a re-render.",
+          explanation: "`useRef` creates a mutable object that persists for the lifetime of the component. Updating its `.current` property does not trigger a re-render."
         },
         {
           part: 4,
           question: "Q198. In Redux, what does applyMiddleware() do?",
-          options: [
-            "a) Add async behavior to store",
-            "b) Add reducers",
-            "c) Create store",
-            "d) Replace state",
-          ],
+          options: ["a) Add async behavior to store", "b) Add reducers", "c) Create store", "d) Replace state"],
           correct: "a",
-          explanation:
-            "`applyMiddleware` is a store enhancer that allows you to wrap the store's `dispatch` method to add functionalities like logging or handling asynchronous actions.",
+          explanation: "`applyMiddleware` is a store enhancer that allows you to wrap the store's `dispatch` method to add functionalities like logging or handling asynchronous actions."
         },
         {
           part: 4,
-          question:
-            "Q199. Which of these is NOT part of React’s reconciliation algorithm?",
-          options: [
-            "a) Diffing",
-            "b) Virtual DOM",
-            "c) Fiber",
-            "d) SQL queries",
-          ],
+          question: "Q199. Which of these is NOT part of React’s reconciliation algorithm?",
+          options: ["a) Diffing", "b) Virtual DOM", "c) Fiber", "d) SQL queries"],
           correct: "d",
-          explanation:
-            "Reconciliation is the process through which React updates the DOM. It involves the Virtual DOM, a diffing algorithm to find changes, and the Fiber architecture for scheduling updates. It has no relation to SQL queries.",
+          explanation: "Reconciliation is the process through which React updates the DOM. It involves the Virtual DOM, a diffing algorithm to find changes, and the Fiber architecture for scheduling updates. It has no relation to SQL queries."
         },
         {
           part: 4,
           question: "Q200. Which of these correctly describes Redux DevTools?",
-          options: [
-            "a) Debugging tool for Redux state",
-            "b) Code bundler",
-            "c) Middleware",
-            "d) Router",
-          ],
+          options: ["a) Debugging tool for Redux state", "b) Code bundler", "c) Middleware", "d) Router"],
           correct: "a",
-          explanation:
-            "Redux DevTools is a browser extension that provides power-ups for your Redux development workflow, allowing you to inspect every state and action payload, and even time-travel to previous states.",
-        },
+          explanation: "Redux DevTools is a browser extension that provides power-ups for your Redux development workflow, allowing you to inspect every state and action payload, and even time-travel to previous states."
+        }
       ];
 
       // ---- TIMER LOGIC ----
